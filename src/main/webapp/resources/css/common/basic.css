@@ -1,0 +1,124 @@
+.Navigation {
+    clear: both;
+    height: 3.75rem;
+    line-height: 3.75rem;
+    background-color: #27282d;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #2a2b30;
+}
+.link-items {
+    width: 600px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    max-width: 1140px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.Menus__link {
+    font-size: 1px;
+    font-size: 1rem;
+    margin-right: 1.6rem;
+    font-weight: bold;
+    user-select: none;
+    position: relative;
+    color: #fbfbfb;
+}
+.Menus__link.brand {
+    font-size: 1.875rem;
+    font-family: Gilroy;
+    color: #db0442 !important;
+    margin-right: 4rem;
+}
+.Menus__link:not(.brand) {
+    position: relative;
+    color: #fbfbfb;
+}
+.Menus__login {
+    font-size: .75px;
+    font-size: .75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    cursor: pointer;
+    height: 2rem;
+    line-height: normal;
+    border: 1px solid #01d1b2;
+    color: #01d1b2 !important;
+    padding-top: .4rem;
+}
+.Menus__login:hover {
+    -webkit-animation:login   0.3s ease 1;
+    -webkit-animation-fill-mode:both
+}
+@-webkit-keyframes login{
+    100%{
+        border-color: #16776A;
+        color:  #16776A;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+ol, ul {
+    padding: 0;
+    list-style: none;
+}
+body {
+    margin: 0;
+    font-family: 'NanumSquare', 'sans-serif';
+    font-size: 1rem;
+    background-color: #1e2025;
+    font-weight: 400;
+    line-height: 1.5;
+}
+button {
+    background:inherit;
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+img, svg {
+    vertical-align: middle !important;
+}
+td {
+    display: table-cell !important;
+    vertical-align: inherit !important;
+}
+.Icon, .Menus__link {
+    display: inline-block !important;
+}
+.Gilroy {
+    font-family: Gilroy,Spoqa Han Sans,Spoqa Han Sans JP,"Sans-serif";
+    font-weight: 700;
+}
+.float-right {
+    float: right!important;
+}
+.FluidContainer {
+    background-color: #1e2025;
+}
+a {
+    cursor: pointer !important;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
