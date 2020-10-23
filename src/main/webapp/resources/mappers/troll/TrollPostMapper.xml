@@ -6,4 +6,30 @@
 	<select id="getTrollPostCount" resultType="int">
 		SELECT Count(*) FROM troll_board where troller = #{name} 
 	</select>
+	<insert id="insertPost" parameterType="com.trollreport.gg.troll.domain.TrollPostDto">
+		INSERT INTO troll_board (
+			category
+			, title
+			, content
+			, writer
+			, troller
+			, view_cnt
+			, delete_yn
+			, insert_time
+			, update_time
+			, delete_time
+		) VALUES (
+	        #{category}
+	        , #{title}
+	        , #{content}
+	        , #{writer}
+	        , #{troller}
+	        , 0
+	        , 'N'
+	        , NOW()
+	        , NULL
+	        , NULL
+		)
+	</insert>
+	
 </mapper>

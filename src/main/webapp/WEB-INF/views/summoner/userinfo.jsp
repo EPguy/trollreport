@@ -5,10 +5,21 @@
         <meta charset="UTF-8">
         <title>TROLLREPORT.GG</title>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summoner/userinfo.css" type="text/css" />
+    	<script type="text/javascript">
+    		function trollAdd() {
+    			var frm = document.trollPost;
+    			frm.action = "/troll/insert";
+    			frm.category.value = "한줄평";
+    			frm.title.value = frm.onelineText.value;
+    			frm.content.value = frm.onelineText.value;
+    			frm.writer.value = "익명";
+    			frm.troller.value = "${name}";
+    			frm.submit();
+    		}
+		</script>
     </head>
     <body>
         <jsp:include page="../common/header.jsp"/>
-
         <div class="user-wrapper">
             <div class="Summoner_Header">
                 <div class="Summoner_Header_Wrapper">
@@ -24,8 +35,15 @@
                     </div>
                 </div>
                 <div class="oneline-form">
-                    <input id="oneline-input" placeholder="한줄평을 입력하세요." class="comment-textarea">
-                    <div id="oneline-post" class="comment-post">등록</div>
+                	<form name="trollPost" style="width: 100%">
+                		<input type="hidden" name="category">
+                		<input type="hidden" name="title">
+                		<input type="hidden" name="content">
+                		<input type="hidden" name="writer">
+                		<input type="hidden" name="troller">
+	                    <input name="onelineText" placeholder="한줄평을 입력하세요." class="comment-textarea">
+	                    <div onClick="trollAdd();" class="comment-post">등록</div>
+	                </form>
                 </div>
                 <div class="post-wrapper">
                         <div class="post-wrapper-count">
@@ -42,6 +60,5 @@
             </div>
         </div>
         <jsp:include page="../common/footer.jsp"/>
-        <script src="${pageContext.request.contextPath}/resources/js/user.js"></script>
     </body>
 </html>
