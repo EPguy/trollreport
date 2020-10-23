@@ -1,6 +1,7 @@
 package com.trollreport.gg.summoner.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
@@ -25,8 +26,10 @@ public class SummonerServiceImpl implements SummonerService {
     public boolean searchSummonerByName(String name) {
         if (ObjectUtils.isEmpty(summonerMapper.selectSummoner(name))) {
             //DB에 소환사가 없을 때
-        	RestTemplate restTemplate = new RestTemplate();
+        	RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+        	RestTemplate restTemplate = restTemplateBuilder.build();
             SummonerDto summonerDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=" + api_key, SummonerDto.class);
+            System.out.println(summonerDto.getName());
             summonerMapper.insertSummoner(summonerDto);
             //LeagueEntryDto[] leagueEntryDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + summonerDto.getId() + "?api_key=" + api_key, LeagueEntryDto[].class);
             //if(leagueEntryDto.length > 0) {

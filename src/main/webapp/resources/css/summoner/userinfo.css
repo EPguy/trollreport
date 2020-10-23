@@ -1,0 +1,172 @@
+.user-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*Çì´õ*/
+.Summoner_Header {
+    margin-top: 50px;
+    width: 1200px;
+    border-bottom: 1px solid #3b3c40;
+    height: 150px;
+}
+.Summoner_Info {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Summoner_Header_Wrapper {
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    margin: 0 auto;
+    height:100%;
+}
+.Summoner_Header_Style {
+    background: linear-gradient(rgb(194, 158, 82) 0px, rgb(122, 90, 38) 88%, rgb(168, 132, 73));
+    border-radius: 100%;
+    padding: 1px;
+}
+.Summoner_Header_img {
+    border-radius: 100%;
+}
+.Summoner_Header .profile {
+    border: 2px solid white;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+}
+.Summoner_Header_Userinfo {
+    height: 104px;
+    margin-left: 25px;
+}
+.PastRank ul li{
+    display: inline-block;
+    padding: 3px 4px 2px 4px;
+    margin-right: 10px;
+    background: #e0e3e3;
+    color: #657070;
+    font-size: 11px;
+    border: 1px solid #ced3d3;
+    border-radius: 3px;
+}
+.PastRank ul li b{
+    font-weight: bold;
+}
+.Summoner_rank {
+    padding-top: 6px;
+    color: #555e5e;
+    font-size: 13px;
+}
+.Summoner_name {
+    line-height: 80px;
+    padding-top: 10px;
+    color: #fbfbfb;
+    font-size: 30px;
+    font-weight: bold;
+}
+.Summoner_Prefer {
+    width: 650px;
+}
+
+/*´ñ±Û*/
+.oneline-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.comment-textarea {
+    font-size: 17px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    overflow-y: hidden;
+    color: #5b5c64;
+    font-weight: 700;
+    border: 1px solid #5b5c64;
+    border-radius: 0.1rem;
+    background-color: #27282d;
+    line-height: 1.2rem;
+    padding: .9375rem 1.25rem;
+}
+
+.comment-post {
+    margin-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    border: 1px solid #38d9a9;
+    border-radius: 0.2rem;
+    background-color: #38d9a9;
+    color: black;
+    transition: background-color 0.3s linear;
+}
+
+.comment-post:hover {
+    background-color: #12b886;
+}
+
+.post-wrapper {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    width:1200px;
+    border: 1px solid #5b5c64;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.troll-post-item {
+    margin-bottom: 10px;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+    width: 1150px;
+    height: 80px;
+    border: 1px solid #3f3f45;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.troll-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.troll-bottom {
+    display: flex;
+    color: #a3a4a9;
+    font-size: 15px;
+    align-items: center;
+}
+
+.troll-bottom-line {
+    width: 0.2px;
+    height: 15px;
+    margin-left: 17px;
+    margin-right: 17px;
+    border: 0.5px solid #a3a4a9;
+}
+
+.no-troll {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.post-wrapper-count {
+    margin-bottom: 15px;
+    color: white;
+}

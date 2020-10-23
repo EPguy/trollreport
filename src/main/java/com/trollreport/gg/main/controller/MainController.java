@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 	@RequestMapping("/")
-    public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView index(HttpServletRequest request, HttpServletResponse response) throws Exception{
         ModelAndView mav = new ModelAndView("/main/main");
         return mav;
     }

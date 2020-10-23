@@ -22,15 +22,14 @@
             const enterKey = () => {
                 if(window.event.keyCode == 13) {
                     inputValue = document.getElementById("main-input").value;
-                    window.location.href = `/user/info?username=${inputValue}`;
+                    window.location.href = "/summoner/info?username="+inputValue;
                 }
             }
             const onClick = () => {
                 inputValue = document.getElementById("main-input").value;
-                window.location.href = `/user/info?username=${inputValue}`;
+                window.location.href = "/summoner/info?username="+inputValue;
             }
         </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <jsp:include page="../common/footer.jsp"/>
     </body>
 </html>

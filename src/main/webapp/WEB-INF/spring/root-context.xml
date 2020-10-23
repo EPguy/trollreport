@@ -15,12 +15,13 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations">
 			<list>
-				<value>/resources/mappers/*.xml</value>
+				<value>/resources/mappers/summoner/*.xml</value>
+				<value>/resources/mappers/troll/*.xml</value>
 			</list>
 		</property>
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.trollreport.gg.summoner.mapper"/> 
+		<property name="basePackage" value="com.trollreport.gg.summoner.mapper, com.trollreport.gg.troll.mapper"/>
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
