@@ -8,13 +8,19 @@
     	<script type="text/javascript">
     		function trollAdd() {
     			var frm = document.trollPost;
-    			frm.action = "/troll/insert";
+    			frm.action = "/troll/insert.do";
     			frm.category.value = "한줄평";
     			frm.title.value = frm.onelineText.value;
     			frm.content.value = frm.onelineText.value;
     			frm.writer.value = "익명";
     			frm.troller.value = "${name}";
     			frm.submit();
+    		}
+    		
+    		function enterKey() {
+    			 if(window.event.keyCode == 13) {
+                     trollAdd();
+                 }
     		}
 		</script>
     </head>
@@ -35,13 +41,13 @@
                     </div>
                 </div>
                 <div class="oneline-form">
-                	<form name="trollPost" style="width: 100%">
+                	<form name="trollPost" style="width: 100%" onsubmit="return false">
                 		<input type="hidden" name="category">
                 		<input type="hidden" name="title">
                 		<input type="hidden" name="content">
                 		<input type="hidden" name="writer">
                 		<input type="hidden" name="troller">
-	                    <input name="onelineText" placeholder="한줄평을 입력하세요." class="comment-textarea">
+	                    <input onkeyup="enterKey()" name="onelineText" placeholder="한줄평을 입력하세요." class="comment-textarea">
 	                    <div onClick="trollAdd();" class="comment-post">등록</div>
 	                </form>
                 </div>

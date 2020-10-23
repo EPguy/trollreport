@@ -25,7 +25,7 @@ public class BoardController {
     @Autowired
     private TrollService trollService;
 
-    @RequestMapping("/insert")
+    @RequestMapping("/insert.do")
     public ModelAndView insert(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirect) throws Exception{
         ModelAndView mav = new ModelAndView();
         
@@ -44,7 +44,7 @@ public class BoardController {
     	trollService.insertPost(trollPost);
     	
     	String trollerParam = URLEncoder.encode(troller, "UTF-8");
-    	mav.setViewName("redirect:/summoner/info?username=" + trollerParam);
+    	mav.setViewName("redirect:/summoner/info.do?username=" + trollerParam);
     	return mav;
     }
 }

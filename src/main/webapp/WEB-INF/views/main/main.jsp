@@ -22,12 +22,12 @@
             const enterKey = () => {
                 if(window.event.keyCode == 13) {
                     inputValue = document.getElementById("main-input").value;
-                    window.location.href = "/summoner/info?username="+inputValue;
+                    window.location.href = "/summoner/info.do?username="+inputValue;
                 }
             }
             const onClick = () => {
                 inputValue = document.getElementById("main-input").value;
-                window.location.href = "/summoner/info?username="+inputValue;
+                window.location.href = "/summoner/info.do?username="+inputValue;
             }
         </script>
         <jsp:include page="../common/footer.jsp"/>

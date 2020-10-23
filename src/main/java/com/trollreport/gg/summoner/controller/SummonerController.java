@@ -24,7 +24,7 @@ public class SummonerController {
     @Autowired
     private TrollService trollService;
     
-    @RequestMapping("/info")
+    @RequestMapping("/info.do")
     public ModelAndView user(HttpServletRequest request, HttpServletResponse response) throws Exception{
     	ModelAndView mav = new ModelAndView();
     	String username = request.getParameter("username");
