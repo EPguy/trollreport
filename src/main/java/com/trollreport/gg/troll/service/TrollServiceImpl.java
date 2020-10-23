@@ -12,8 +12,8 @@ public class TrollServiceImpl implements TrollService {
     TrollPostMapper trollPostMapper;
 
     @Override
-    public int getTrollPostCount() {
-    	return trollPostMapper.getTrollPostCount();
+    public int getTrollPostCount(String name) {
+    	return trollPostMapper.getTrollPostCount(name);
     }
     
     @Override

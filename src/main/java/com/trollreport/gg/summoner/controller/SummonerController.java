@@ -38,8 +38,8 @@ public class SummonerController {
             
             //view에게 데이터 전달
             mav.addObject("icon", "https://opgg-static.akamaized.net/images/profile_icons/profileIcon"+summoner.getProfileIconId()+".jpg");
-            mav.addObject("name", summoner.getName());
-            mav.addObject("troll_post_count", trollService.getTrollPostCount());
+            mav.addObject("name", username);
+            mav.addObject("troll_post_count", trollService.getTrollPostCount(username));
             mav.setViewName("/summoner/userinfo");
             return mav;
         } catch (HttpStatusCodeException e) {
