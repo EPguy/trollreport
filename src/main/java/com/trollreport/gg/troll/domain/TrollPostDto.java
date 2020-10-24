@@ -1,7 +1,5 @@
 package com.trollreport.gg.troll.domain;
 
-import java.time.LocalDateTime;
-
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,6 +22,24 @@ public class TrollPostDto{
     /** 트롤러 */
     private String troller;
 
+	/** 트롤러 accountId */
+    private String trollerId;
+
+    /** 조회 수 */
+    private int viewCnt;
+
+    /** 삭제 여부 */
+    private String deleteYn;
+
+    /** 등록일 */
+    private String insertTime;
+
+    /** 수정일 */
+    private String updateTime;
+
+    /** 삭제일 */
+    private String deleteTime;
+    
     public Long getId() {
 		return id;
 	}
@@ -96,46 +112,27 @@ public class TrollPostDto{
 		this.deleteYn = deleteYn;
 	}
 
-	public LocalDateTime getInsertTime() {
+	public String getInsertTime() {
 		return insertTime;
 	}
 
-	public void setInsertTime(LocalDateTime insertTime) {
+	public void setInsertTime(String insertTime) {
 		this.insertTime = insertTime;
 	}
 
-	public LocalDateTime getUpdateTime() {
+	public String getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(LocalDateTime updateTime) {
+	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	public LocalDateTime getDeleteTime() {
+	public String getDeleteTime() {
 		return deleteTime;
 	}
 
-	public void setDeleteTime(LocalDateTime deleteTime) {
+	public void setDeleteTime(String deleteTime) {
 		this.deleteTime = deleteTime;
 	}
-
-	/** 트롤러 accountId */
-    private String trollerId;
-
-    /** 조회 수 */
-    private int viewCnt;
-
-    /** 삭제 여부 */
-    private String deleteYn;
-
-    /** 등록일 */
-    private LocalDateTime insertTime;
-
-    /** 수정일 */
-    private LocalDateTime updateTime;
-
-    /** 삭제일 */
-    private LocalDateTime deleteTime;
-
 }

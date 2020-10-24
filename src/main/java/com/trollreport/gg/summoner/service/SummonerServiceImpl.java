@@ -29,7 +29,6 @@ public class SummonerServiceImpl implements SummonerService {
     	try {
     		SummonerDto summonerDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=" + api_key, SummonerDto.class);
     	} catch (final HttpClientErrorException e) {
-    		System.out.println("¿¡·¯ : " + e.getStatusCode());
     		return false;
     	}
     	return true;
@@ -38,7 +37,6 @@ public class SummonerServiceImpl implements SummonerService {
     @Override
     public void insertSummoner(String name) {
         SummonerDto summonerDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=" + api_key, SummonerDto.class);
-        System.out.println(summonerDto.getName());
         summonerMapper.insertSummoner(summonerDto);
         //LeagueEntryDto[] leagueEntryDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + summonerDto.getId() + "?api_key=" + api_key, LeagueEntryDto[].class);
         //if(leagueEntryDto.length > 0) {

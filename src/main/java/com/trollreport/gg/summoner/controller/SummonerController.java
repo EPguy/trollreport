@@ -1,5 +1,7 @@
 package com.trollreport.gg.summoner.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.trollreport.gg.summoner.domain.SummonerDto;
 import com.trollreport.gg.summoner.service.SummonerService;
+import com.trollreport.gg.troll.domain.TrollPostDto;
 import com.trollreport.gg.troll.service.TrollService;
 import com.trollreport.gg.util.Messages;
 
@@ -41,16 +44,18 @@ public class SummonerController {
     	/* 예외 처리 */
     	
     	/* 실행 */
-    	//db에 저장되지 않는 소환사 일시 db에 저장
+    	//db에 저장되지 않는 소환사일시 db에 저장
         if(summonerService.selectSummonerByName(username) == null) {
         	summonerService.insertSummoner(username);
         }
         
         SummonerDto summoner = summonerService.selectSummonerByName(username);
+        List<TrollPostDto> trollPostList = trollService.getPostList(username);
         
         //view에게 데이터 전달
         mav.addObject("icon", "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/" +summoner.getProfileIconId() + ".png");
         mav.addObject("name", summoner.getName());
+        mav.addObject("trollPostList", trollPostList);
         mav.addObject("troll_post_count", trollService.getTrollPostCount(summoner.getName()));
         mav.setViewName("/summoner/userinfo");
         return mav;

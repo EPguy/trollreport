@@ -1,5 +1,7 @@
 package com.trollreport.gg.troll.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,14 @@ public class TrollServiceImpl implements TrollService {
     @Override
     public void insertPost(TrollPostDto trollPostDto) {
     	trollPostMapper.insertPost(trollPostDto);
+    }
+    
+    @Override
+    public List<TrollPostDto> getPostList(String name) {
+    	//공백 제거
+    	name = name.replaceAll(" ", "");
+    	name = name.replaceAll("\\p{Z}", "");
+    	
+    	return trollPostMapper.getPostList(name);
     }
 }

@@ -61,6 +61,21 @@
 		                        트롤 기록이 없는 유저입니다.
 		                    </div>
                     	</c:when>
+                    	<c:otherwise>
+                    		<c:forEach var = "trollPost" items="${trollPostList}">
+					        	<div class="troll-post-item">
+		                            <div class="troll-title">${trollPost.title}</div>
+		                            <div class="troll-bottom">
+		                                <div class="troll-category">${trollPost.category}</div>
+		                                <div class="troll-bottom-line"></div>
+		                                <div class="troll-time">${trollPost.insertTime}</div>
+		                                <div class="troll-bottom-line"></div>
+		                                <div class="troll-writer">${trollPost.writer}</div>
+		                            </div>
+		                        </div>
+					        </c:forEach>
+                    		
+                    	</c:otherwise>
                     </c:choose>
                 </div>
             </div>
