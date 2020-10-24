@@ -11,4 +11,5 @@ public interface TrollPostMapper {
 	@Options(useGeneratedKeys = true, keyProperty = "id")
 	public void insertPost(TrollPostDto trollPostDto);
 	public List<TrollPostDto> getPostList(String name);
+	public TrollPostDto getPost(int id);
 }

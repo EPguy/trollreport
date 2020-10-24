@@ -1,0 +1,117 @@
+.troll-post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.troll-post-wrapper {
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 1200px;
+}
+
+.troll-post-top {
+    flex-direction: column;
+    display: flex;
+}
+
+.troll-post-sub-top {
+    display: flex;
+    align-items: center;
+}
+
+.troll-post-title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.troll-post-line {
+    width: 1160px;
+    height: 0.1px;
+    margin-top: 13px;
+    margin-bottom: 17px;
+    border-top: 1px solid #3f3f45;
+}
+
+.troll-post-category-line {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 1px;
+    height: 20px;
+    border-left: 1px solid white;
+}
+
+.troll-post-content-temp {
+    display: none;
+}
+
+/*Çì´õ*/
+.Summoner_Header {
+    margin-top: 50px;
+    width: 1200px;
+    border-bottom: 1px solid #3b3c40;
+    height: 150px;
+}
+.Summoner_Info {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Summoner_Header_Wrapper {
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    margin: 0 auto;
+    height:100%;
+}
+.Summoner_Header_Style {
+    background: linear-gradient(rgb(194, 158, 82) 0px, rgb(122, 90, 38) 88%, rgb(168, 132, 73));
+    border-radius: 100%;
+    padding: 1px;
+}
+.Summoner_Header_img {
+    border-radius: 100%;
+}
+.Summoner_Header .profile {
+    border: 2px solid white;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+}
+.Summoner_Header_Userinfo {
+    height: 104px;
+    margin-left: 25px;
+}
+.PastRank ul li{
+    display: inline-block;
+    padding: 3px 4px 2px 4px;
+    margin-right: 10px;
+    background: #e0e3e3;
+    color: #657070;
+    font-size: 11px;
+    border: 1px solid #ced3d3;
+    border-radius: 3px;
+}
+.PastRank ul li b{
+    font-weight: bold;
+}
+.Summoner_rank {
+    padding-top: 6px;
+    color: #555e5e;
+    font-size: 13px;
+}
+.Summoner_name {
+    line-height: 80px;
+    padding-top: 10px;
+    color: #fbfbfb;
+    font-size: 30px;
+    font-weight: bold;
+}
+.Summoner_Prefer {
+    width: 650px;
+}

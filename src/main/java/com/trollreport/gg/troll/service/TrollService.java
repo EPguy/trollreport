@@ -8,4 +8,5 @@ public interface TrollService {
 	public int getTrollPostCount(String name);
 	public void insertPost(TrollPostDto trollPostDto);
 	public List<TrollPostDto> getPostList(String name);
+	public TrollPostDto getPost(int id);
 }

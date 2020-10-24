@@ -1,0 +1,52 @@
+.report {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.report-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1140px;
+}
+.report-wrapper img {
+    width: 300px;
+}
+.editor-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 1140px;
+}
+.editor-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.editor-title {
+    margin-top: 10px;
+}
+
+.editor-title input {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.editor-tools .btn {
+    width: 80px;
+    height:40px;
+}
+.custom-select {
+    height: 60px;
+    width: 200px;
+}
+
+.editor-wrapper {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+#sample {
+    height: 614px;
+    width: 1140px;
+}

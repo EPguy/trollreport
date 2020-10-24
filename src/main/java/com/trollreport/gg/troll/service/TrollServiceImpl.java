@@ -28,7 +28,11 @@ public class TrollServiceImpl implements TrollService {
     	//공백 제거
     	name = name.replaceAll(" ", "");
     	name = name.replaceAll("\\p{Z}", "");
-    	
     	return trollPostMapper.getPostList(name);
+    }
+    
+    @Override
+    public TrollPostDto getPost(int id) {
+    	return trollPostMapper.getPost(id);
     }
 }

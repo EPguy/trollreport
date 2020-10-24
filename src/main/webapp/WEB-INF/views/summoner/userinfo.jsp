@@ -63,16 +63,18 @@
                     	</c:when>
                     	<c:otherwise>
                     		<c:forEach var = "trollPost" items="${trollPostList}">
-					        	<div class="troll-post-item">
-		                            <div class="troll-title">${trollPost.title}</div>
-		                            <div class="troll-bottom">
-		                                <div class="troll-category">${trollPost.category}</div>
-		                                <div class="troll-bottom-line"></div>
-		                                <div class="troll-time">${trollPost.insertTime}</div>
-		                                <div class="troll-bottom-line"></div>
-		                                <div class="troll-writer">${trollPost.writer}</div>
-		                            </div>
-		                        </div>
+                    			<a href="/troll/board.do?id=${trollPost.id}">
+						        	<div class="troll-post-item">
+			                            <div class="troll-title">${trollPost.title}</div>
+			                            <div class="troll-bottom">
+			                                <div class="troll-category">${trollPost.category}</div>
+			                                <div class="troll-bottom-line"></div>
+			                                <div class="troll-time">${trollPost.insertTime}</div>
+			                                <div class="troll-bottom-line"></div>
+			                                <div class="troll-writer">${trollPost.writer}</div>
+			                            </div>
+			                        </div>
+		                        </a>
 					        </c:forEach>
                     		
                     	</c:otherwise>
