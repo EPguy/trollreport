@@ -6,6 +6,7 @@ public class SummonerDto {
     private String name;
     private long summonerLevel;
     private int profileIconId;
+    
 	public String getId() {
 		return id;
 	}

@@ -3,7 +3,7 @@ package com.trollreport.gg.summoner.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.trollreport.gg.summoner.domain.LeagueEntryDto;
@@ -20,29 +20,38 @@ public class SummonerServiceImpl implements SummonerService {
     private SummonerMapper summonerMapper;
     @Autowired
     private LeagueEntryMapper leagueEntryMapper;
-
-
+    
+    RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+    RestTemplate restTemplate = restTemplateBuilder.build();
+    
     @Override
-    public boolean searchSummonerByName(String name) {
-        if (ObjectUtils.isEmpty(summonerMapper.selectSummoner(name))) {
-            //DB에 소환사가 없을 때
-        	RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
-        	RestTemplate restTemplate = restTemplateBuilder.build();
-            SummonerDto summonerDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=" + api_key, SummonerDto.class);
-            System.out.println(summonerDto.getName());
-            summonerMapper.insertSummoner(summonerDto);
-            //LeagueEntryDto[] leagueEntryDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + summonerDto.getId() + "?api_key=" + api_key, LeagueEntryDto[].class);
-            //if(leagueEntryDto.length > 0) {
-            //    leagueEntryMapper.insertLeagueEntry(leagueEntryDto[0]);
-            //}
-            return true;
-        } else {
-            return true;
-        }
+    public boolean isSummonerExists(String name) {
+    	try {
+    		SummonerDto summonerDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=" + api_key, SummonerDto.class);
+    	} catch (final HttpClientErrorException e) {
+    		System.out.println("에러 : " + e.getStatusCode());
+    		return false;
+    	}
+    	return true;
     }
-
+    
+    @Override
+    public void insertSummoner(String name) {
+        SummonerDto summonerDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + name + "?api_key=" + api_key, SummonerDto.class);
+        System.out.println(summonerDto.getName());
+        summonerMapper.insertSummoner(summonerDto);
+        //LeagueEntryDto[] leagueEntryDto = restTemplate.getForObject("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + summonerDto.getId() + "?api_key=" + api_key, LeagueEntryDto[].class);
+        //if(leagueEntryDto.length > 0) {
+        //    leagueEntryMapper.insertLeagueEntry(leagueEntryDto[0]);
+        //}
+    }
+    
     @Override
     public SummonerDto selectSummonerByName(String name) {
+    	//공백 제거
+    	name = name.replaceAll(" ", "");
+    	name = name.replaceAll("\\p{Z}", "");
+        
         return summonerMapper.selectSummoner(name);
     }
 

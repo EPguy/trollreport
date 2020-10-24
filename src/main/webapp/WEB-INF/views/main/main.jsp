@@ -13,7 +13,7 @@
             <div class="search-wrapper">
                 <div class="search-logo"><img src="${pageContext.request.contextPath}/resources/image/main/teemo.png"></div>
                 <div class="main-search">
-                    <input onkeyup="enterKey()" id="main-input" placeholder="누굴 박제하고 싶으십니까?">
+                    <input onkeyup="enterKey()" maxlength="15" id="main-input" placeholder="누굴 박제하고 싶으십니까?">
                     <button onclick="onClick()"><i class="fas fa-search"></i></button>
                 </div>
             </div>

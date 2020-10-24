@@ -19,7 +19,7 @@
 		)
 	</insert>
 
-	<select id="selectSummoner" parameterType="String" resultType="com.trollreport.gg.summoner.domain.SummonerDto">
-		SELECT * FROM summoner_board WHERE name = #{name}
+	<select id="selectSummoner" parameterType="String" resultType="com.trollreport.gg.summoner.domain.SummonerDto">	
+		SELECT * FROM summoner_board WHERE REPLACE(name, ' ', '') = #{name}
 	</select>
 </mapper>

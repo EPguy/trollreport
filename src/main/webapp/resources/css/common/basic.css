@@ -10,7 +10,6 @@
     border-bottom: 1px solid #2a2b30;
 }
 .link-items {
-    width: 600px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -20,7 +19,7 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    max-width: 1140px;
+    max-width: 1200px;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -108,9 +107,6 @@ td {
 .Gilroy {
     font-family: Gilroy,Spoqa Han Sans,Spoqa Han Sans JP,"Sans-serif";
     font-weight: 700;
-}
-.float-right {
-    float: right!important;
 }
 .FluidContainer {
     background-color: #1e2025;

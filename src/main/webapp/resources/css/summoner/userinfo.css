@@ -15,7 +15,7 @@
 .Summoner_Info {
     width: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .Summoner_Header_Wrapper {
