@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -69,17 +70,31 @@ public class BoardController {
         String writer = request.getParameter("writer");
         String troller = request.getParameter("troller");
         
+        System.out.println(category + title + content + writer + troller);
+        
         if(content.replace(" ", "").equals("")) {
         	Messages.getScriptAlertGoBack(response, "내용을 입력해 주세요.");
         	return null;
         }
+        
+        if(!summonerService.isSummonerExists(troller)) {
+        	Messages.getScriptAlertGoBack(response, "존재하지 않는 소환사입니다.");
+        	return null;
+        }
+        
+        if(ObjectUtils.isEmpty(summonerService.selectSummonerByName(troller))) {
+        	summonerService.insertSummoner(troller);
+        }
+        
+        SummonerDto trollerDto = summonerService.selectSummonerByName(troller);
+        String trollerName = trollerDto.getName();
         
         TrollPostDto trollPost = new TrollPostDto();
         trollPost.setCategory(category);
         trollPost.setTitle(title);
         trollPost.setContent(content);
         trollPost.setWriter(writer);
-        trollPost.setTroller(troller);
+        trollPost.setTroller(trollerName);
     	trollService.insertPost(trollPost);
     	
     	String trollerParam = URLEncoder.encode(troller, "UTF-8");

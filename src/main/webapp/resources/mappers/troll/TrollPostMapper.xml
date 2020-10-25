@@ -35,7 +35,7 @@
 	</insert>
 	
 	<select id="getPostList" parameterType="String" resultType="com.trollreport.gg.troll.domain.TrollPostDto">
-        SELECT * FROM troll_board WHERE REPLACE(troller, ' ', '') = #{name}
+        SELECT * FROM troll_board WHERE LOWER(REPLACE(troller, ' ', '')) = #{name}
     </select>
     
     <select id="getPost" parameterType="String" resultType="com.trollreport.gg.troll.domain.TrollPostDto">

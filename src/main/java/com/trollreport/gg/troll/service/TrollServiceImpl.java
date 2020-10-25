@@ -28,6 +28,8 @@ public class TrollServiceImpl implements TrollService {
     	//공백 제거
     	name = name.replaceAll(" ", "");
     	name = name.replaceAll("\\p{Z}", "");
+    	name = name.toLowerCase();
+    	System.out.println(name);
     	return trollPostMapper.getPostList(name);
     }
     

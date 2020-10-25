@@ -11,12 +11,12 @@
     </head>
     <body>
         <nav class="Navigation">
-            <div class="container">
+            <div class="container" style="justify-content: flex-start">
                 <a href="/" class="Menus__link Gilroy brand">TrollReport.GG</a>
                 <div class="link-items">
                     <a href="/troll/report.do" class="Menus__link">트롤 등록</a>
                 </div>
-                <a href="/login" id="login-button" class="Menus__login float-right" style="margin-left: auto"><span>로그인</span></a>
+                <!-- <a href="/login" id="login-button" class="Menus__login float-right" style="margin-left: auto"><span>로그인</span></a> -->
                 <div id="header-username"></div>
             </div>
         </nav>

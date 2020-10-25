@@ -20,8 +20,7 @@
                     </div>
                 </div>
                 <div class="troll-post-line"></div>
-                <div id="troll-post-content-temp" class="troll-post-content-temp">${content}</div>
-                <div id="troll-post-content" class="troll-post-content"></div>
+                <div id="troll-post-content" class="troll-post-content">${content}</div>
             </div>
         </div>
         <jsp:include page="../common/footer.jsp"/>
