@@ -14,6 +14,7 @@ import com.trollreport.gg.summoner.domain.SummonerDto;
 import com.trollreport.gg.summoner.service.SummonerService;
 import com.trollreport.gg.troll.domain.TrollPostDto;
 import com.trollreport.gg.troll.service.TrollService;
+import com.trollreport.gg.util.Messages;
 
 @Controller
 @RequestMapping(value = "/troll")
@@ -41,6 +42,13 @@ public class BoardController {
         TrollPostDto trollPost = trollService.getPost(Integer.parseInt(id));
     	SummonerDto troller = summonerService.selectSummonerByName(trollPost.getTroller());
     	
+    	if(trollPost.getCategory().equals("한줄평")) {
+    		System.out.println("hi");
+    		Messages.getScriptAlertGoBack(response, "한줄평은 볼 수 없습니다.");
+    		return null;
+    	}
+    	
+    	
         mav.addObject("icon", "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/" + troller.getProfileIconId() + ".png");
         mav.addObject("name", troller.getName());
         mav.addObject("title", trollPost.getTitle());
@@ -60,6 +68,11 @@ public class BoardController {
         String content = request.getParameter("content");
         String writer = request.getParameter("writer");
         String troller = request.getParameter("troller");
+        
+        if(content.replace(" ", "").equals("")) {
+        	Messages.getScriptAlertGoBack(response, "내용을 입력해 주세요.");
+        	return null;
+        }
         
         TrollPostDto trollPost = new TrollPostDto();
         trollPost.setCategory(category);

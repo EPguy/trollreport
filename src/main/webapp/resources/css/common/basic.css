@@ -28,16 +28,14 @@
 }
 .Menus__link {
     font-size: 1px;
-    font-size: 1rem;
+    font-size: 1.15rem;
     margin-right: 1.6rem;
-    font-weight: bold;
     user-select: none;
     position: relative;
     color: #fbfbfb;
 }
 .Menus__link.brand {
     font-size: 1.875rem;
-    font-family: Gilroy;
     color: #db0442 !important;
     margin-right: 4rem;
 }
@@ -67,6 +65,14 @@
         color:  #16776A;
     }
 }
+
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -75,8 +81,8 @@ ol, ul {
     list-style: none;
 }
 body {
+	font-family: 'NanumSquare', sans-serif !important;
     margin: 0;
-    font-family: 'NanumSquare', 'sans-serif';
     font-size: 1rem;
     background-color: #1e2025;
     font-weight: 400;
@@ -84,7 +90,6 @@ body {
 }
 button {
     background:inherit;
-    font-family: inherit;
     border: 0;
     padding: 0;
     outline: 0;
@@ -105,7 +110,6 @@ td {
     display: inline-block !important;
 }
 .Gilroy {
-    font-family: Gilroy,Spoqa Han Sans,Spoqa Han Sans JP,"Sans-serif";
     font-weight: 700;
 }
 .FluidContainer {

@@ -9,13 +9,15 @@
 			accountId,
 			name,
 			summonerLevel,
-			profileIconId
+			profileIconId,
+			createdTime
 		) VALUES (
 		#{id}
 		, #{accountId}
 		, #{name}
 		, #{summonerLevel}
 		, #{profileIconId}
+		, NOW()
 		)
 	</insert>
 
