@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.trollreport.gg.summoner.domain.SummonerDto;
 import com.trollreport.gg.summoner.service.SummonerService;
+import com.trollreport.gg.troll.domain.SearchDto;
 import com.trollreport.gg.troll.domain.TrollPostDto;
 import com.trollreport.gg.troll.service.TrollService;
 import com.trollreport.gg.util.Messages;
@@ -31,7 +32,6 @@ public class SummonerController {
     	ModelAndView mav = new ModelAndView();
     	String username = request.getParameter("username");
     	
-    	/* 예외 처리 */
     	if(username == "") {
     		Messages.getScriptAlertGoBack(response, "소환사명을 입력해주세요.");
     		return null;
@@ -50,11 +50,15 @@ public class SummonerController {
         }
         
         SummonerDto summoner = summonerService.selectSummonerByName(username);
-        List<TrollPostDto> trollPostList = trollService.getPostList(username);
+        
+        SearchDto searchDto = new SearchDto();
+        searchDto.setSearchUser(summoner.getName());
+        List<TrollPostDto> trollPostList = trollService.getPostList(searchDto);
         
         //view에게 데이터 전달
         mav.addObject("icon", "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/" +summoner.getProfileIconId() + ".png");
         mav.addObject("name", summoner.getName());
+        mav.addObject("searchDto", searchDto);
         mav.addObject("trollPostList", trollPostList);
         mav.addObject("troll_post_count", trollService.getTrollPostCount(summoner.getName()));
         mav.setViewName("/summoner/userinfo");

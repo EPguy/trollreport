@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.trollreport.gg.troll.domain.SearchDto;
 import com.trollreport.gg.troll.domain.TrollPostDto;
 import com.trollreport.gg.troll.mapper.TrollPostMapper;
 
@@ -24,13 +25,12 @@ public class TrollServiceImpl implements TrollService {
     }
     
     @Override
-    public List<TrollPostDto> getPostList(String name) {
+    public List<TrollPostDto> getPostList(SearchDto searchDto) {
     	//공백 제거
-    	name = name.replaceAll(" ", "");
-    	name = name.replaceAll("\\p{Z}", "");
-    	name = name.toLowerCase();
-    	System.out.println(name);
-    	return trollPostMapper.getPostList(name);
+    	searchDto.setSearchUser(searchDto.getSearchUser().replaceAll(" ", ""));
+    	searchDto.setSearchUser(searchDto.getSearchUser().replaceAll("\\p{Z}", ""));
+    	searchDto.setSearchUser(searchDto.getSearchUser().toLowerCase());
+    	return trollPostMapper.getPostList(searchDto);
     }
     
     @Override
