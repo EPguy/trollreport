@@ -29,9 +29,20 @@ public class SummonerController {
     
     @RequestMapping("/info.do")
     public ModelAndView user(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	if(request.getParameter("page") == null) {
+    		Messages.getScriptAlertGoBack(response, "잘못된 페이지입니다.");
+    		return null;
+    	}
+    	
     	ModelAndView mav = new ModelAndView();
+    	int page = Integer.parseInt(request.getParameter("page"));
     	String username = request.getParameter("username");
     	
+    	if(page <= 0) {
+    		Messages.getScriptAlertGoBack(response, "잘못된 페이지입니다.");
+    		return null;
+    	}
+
     	if(username == "") {
     		Messages.getScriptAlertGoBack(response, "소환사명을 입력해주세요.");
     		return null;
@@ -53,14 +64,17 @@ public class SummonerController {
         
         SearchDto searchDto = new SearchDto();
         searchDto.setSearchUser(summoner.getName());
+        searchDto.setPage(page);
+        searchDto.setTotal_pages(trollService.getTrollPostCount(username));
         List<TrollPostDto> trollPostList = trollService.getPostList(searchDto);
         
         //view에게 데이터 전달
         mav.addObject("icon", "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/" +summoner.getProfileIconId() + ".png");
         mav.addObject("name", summoner.getName());
+        mav.addObject("currentPage", page);
         mav.addObject("searchDto", searchDto);
         mav.addObject("trollPostList", trollPostList);
-        mav.addObject("troll_post_count", trollService.getTrollPostCount(summoner.getName()));
+        mav.addObject("count", trollService.getTrollPostCount(summoner.getName()));
         mav.setViewName("/summoner/userinfo");
         return mav;
         /* 실행 */

@@ -39,8 +39,13 @@ public class SearchDto {
 		return total_pages;
 	}
 
-	public void setTotal_pages(long total_pages) {
-		this.total_pages = total_pages;
+	public void setTotal_pages(int dataLength) {
+		int totalPages = dataLength % line_per_page == 0 ? dataLength / line_per_page : (dataLength / line_per_page) + 1;
+		if(totalPages == 0) {
+			totalPages = 1;
+		}
+		
+		this.total_pages = totalPages;
 	}
 
 	public String getSearchUser() {

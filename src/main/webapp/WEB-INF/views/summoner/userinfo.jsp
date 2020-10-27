@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <title>TROLLREPORT.GG</title>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summoner/userinfo.css" type="text/css" />
-    	<script type="text/javascript">
+    	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination.css" type="text/css" />
+    	<script>
     		function trollAdd() {
     			var frm = document.trollPost;
     			frm.action = "/troll/insert.do";
@@ -53,10 +54,10 @@
                 </div>
                 <div class="post-wrapper">
                         <div class="post-wrapper-count">
-                        <span>총 </span><span>${troll_post_count}</span><span>개</span>
+                        <span>총 </span><span>${count}</span><span>개</span>
                     </div>
                     <c:choose>
-                    	<c:when test = "${troll_post_count==0}">
+                    	<c:when test = "${count==0}">
                     		<div class="no-troll">
 		                        트롤 기록이 없는 유저입니다.
 		                    </div>
@@ -76,12 +77,56 @@
 			                        </div>
 		                        </a>
 					        </c:forEach>
-                    		
                     	</c:otherwise>
                     </c:choose>
+                    <div id="pagination">
+                    </div>
                 </div>
             </div>
         </div>
         <jsp:include page="../common/footer.jsp"/>
+        <script>
+        	function movePage(nextPage) {
+        		location.href = "/summoner/info.do?username="+'${name}'+"&page="+nextPage  	
+        	}
+		</script>
+        <script>
+	        $(document).ready(function() {
+	        	if('${count}' >= 1) {
+	        		var pagination = $("#pagination");
+	        		pagination.append("<div id=\"prev\">이전</div>");
+	        		pagination.append("<ul></ul>");
+	        		pagination.append("<div id=\"next\">다음</div>")
+	        		var ul = ($("#pagination").children("ul"));
+	        		var prev = ($("#pagination").children("#prev"));
+	        		var next = ($("#pagination").children("#next"));
+	        		var currentPage = Number('${currentPage}');
+	        		var totalPage = Number('${searchDto.total_pages}');
+	        		prev.click(function(){
+	        			if(currentPage-1 === 0) {
+	        				return null;
+	        			} else {
+	        				movePage(currentPage-1);
+	        			}
+	        		})
+	        		
+	        		next.click(function(){
+	        			if(currentPage+1 > totalPage) {
+	        				return null;
+	        			} else {
+	        				movePage(currentPage+1);
+	        			}
+	        		})
+	        		
+	        		for(var i = 1; i <= totalPage; i++) {
+	        			if(i === currentPage) {
+	        				ul.append("<li onClick="+"\"movePage("+i+");\""+"class=\"active\">"+i+"</li>");	
+	        			} else {
+	        				ul.append("<li onClick="+"\"movePage("+i+");\">"+i+"</li>");	
+	        			}
+	        		}
+	        	}
+	        })
+        </script>
     </body>
 </html>

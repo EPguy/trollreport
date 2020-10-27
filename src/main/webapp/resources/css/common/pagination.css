@@ -1,0 +1,31 @@
+#pagination {
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #a3a4a9;
+}
+
+#pagination div {
+	cursor: pointer;
+}
+
+#pagination ul {
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#pagination ul li {
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+#pagination ul li.active {
+	color: white;;
+	font-size: 1.5rem;
+}

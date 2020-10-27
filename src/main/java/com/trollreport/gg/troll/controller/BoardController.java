@@ -98,7 +98,7 @@ public class BoardController {
     	trollService.insertPost(trollPost);
     	
     	String trollerParam = URLEncoder.encode(troller, "UTF-8");
-    	mav.setViewName("redirect:/summoner/info.do?username=" + trollerParam);
+    	mav.setViewName("redirect:/summoner/info.do?username=" + trollerParam + "&page=1");
     	return mav;
     }
 }
