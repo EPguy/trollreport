@@ -48,7 +48,7 @@
                 		<input type="hidden" name="content">
                 		<input type="hidden" name="writer">
                 		<input type="hidden" name="troller">
-	                    <input onkeyup="enterKey()" name="onelineText" placeholder="한줄평을 입력하세요." class="comment-textarea">
+	                    <input onkeyup="enterKey()" maxlength="15" name="onelineText" placeholder="한줄평을 입력하세요." class="comment-textarea">
 	                    <div onClick="trollAdd();" class="comment-post">등록</div>
 	                </form>
                 </div>

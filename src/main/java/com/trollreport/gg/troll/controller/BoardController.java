@@ -61,7 +61,7 @@ public class BoardController {
     }
     
     @RequestMapping("/insert.do")
-    public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView mav = new ModelAndView();
         
         String category = request.getParameter("category");
@@ -96,6 +96,8 @@ public class BoardController {
         trollPost.setWriter(writer);
         trollPost.setTroller(trollerName);
     	trollService.insertPost(trollPost);
+    	
+    	summonerService.updateTrollCount(trollerDto);
     	
     	String trollerParam = URLEncoder.encode(troller, "UTF-8");
     	mav.setViewName("redirect:/summoner/info.do?username=" + trollerParam + "&page=1");

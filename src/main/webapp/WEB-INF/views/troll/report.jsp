@@ -33,8 +33,8 @@
 	                        </select>
 	                    </div>
 	                    <div class="editor-title">
-	                        <input type="text" name="troller"  id="report-user" class="form-control" placeholder="신고할 소환사명을 입력하세요.">
-	                        <input type="text" name="title" id="report-title" class="form-control" placeholder="제목을 입력하세요.">
+	                        <input type="text" name="troller" maxlength="15"  id="report-user" class="form-control" placeholder="신고할 소환사명을 입력하세요.">
+	                        <input type="text" name="title" maxlength="15" id="report-title" class="form-control" placeholder="제목을 입력하세요.">
 	                    </div>
 	                    <div class="editor-wrapper">
 	                        <textarea name="content" id="editor-content"></textarea>

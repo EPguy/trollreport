@@ -6,6 +6,7 @@ public class SummonerDto {
     private String name;
     private long summonerLevel;
     private int profileIconId;
+    private int trollCount;
     
 	public String getId() {
 		return id;
@@ -37,4 +38,11 @@ public class SummonerDto {
 	public void setProfileIconId(int profileIconId) {
 		this.profileIconId = profileIconId;
 	}
+	public int getTrollCount() {
+		return trollCount;
+	}
+	public void setTrollCount(int trollCount) {
+		this.trollCount = trollCount;
+	}
+	
 }

@@ -10,7 +10,8 @@
 			name,
 			summonerLevel,
 			profileIconId,
-			createdTime
+			createdTime,
+			trollCount
 		) VALUES (
 		#{id}
 		, #{accountId}
@@ -18,10 +19,19 @@
 		, #{summonerLevel}
 		, #{profileIconId}
 		, NOW()
+		, 0
 		)
 	</insert>
 
+	<update id="updateTrollCount" parameterType="com.trollreport.gg.summoner.domain.SummonerDto">	
+		UPDATE summoner_board SET trollCount=#{trollCount}+1 where name=#{name}
+	</update>
+	
 	<select id="selectSummoner" parameterType="String" resultType="com.trollreport.gg.summoner.domain.SummonerDto">	
 		SELECT * FROM summoner_board WHERE REPLACE(name, ' ', '') = #{name}
+	</select>
+	
+	<select id="getTrollListTop5" resultType="com.trollreport.gg.summoner.domain.SummonerDto">	
+		SELECT * FROM summoner_board ORDER BY trollCount DESC LIMIT 0, 5
 	</select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.trollreport.gg.summoner.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import com.trollreport.gg.summoner.domain.LeagueEntryDto;
 import com.trollreport.gg.summoner.domain.SummonerDto;
 import com.trollreport.gg.summoner.mapper.LeagueEntryMapper;
 import com.trollreport.gg.summoner.mapper.SummonerMapper;
+import com.trollreport.gg.troll.domain.TrollPostDto;
 
 
 @Service("com.trollreport.gg.summoner.service.SummonerServiceImpl")
@@ -45,6 +48,12 @@ public class SummonerServiceImpl implements SummonerService {
     }
     
     @Override
+    public void updateTrollCount(SummonerDto troller) {
+        summonerMapper.updateTrollCount(troller);
+    }
+
+    
+    @Override
     public SummonerDto selectSummonerByName(String name) {
     	//공백 제거
     	name = name.replaceAll(" ", "");
@@ -56,5 +65,10 @@ public class SummonerServiceImpl implements SummonerService {
     @Override
     public LeagueEntryDto selectLeagueEntryByName(String name) {
         return leagueEntryMapper.selectLeagueEntryByName(name);
+    }
+    
+    @Override
+    public List<SummonerDto> getTrollListTop5() {
+    	return summonerMapper.getTrollListTop5();
     }
 }
