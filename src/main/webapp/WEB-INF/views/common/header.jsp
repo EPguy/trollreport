@@ -8,6 +8,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/basic.css" type="text/css" />
     	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    	<style>
+    		.user-info {
+    			margin-left: auto;
+    			display:flex;
+    			justify-content: center;
+    			align-items: center;
+    			flex-direction: row
+    		}
+    	</style>
     </head>
     <body>
         <nav class="Navigation">
@@ -16,8 +25,17 @@
                 <div class="link-items">
                     <a href="/troll/report.do" class="Menus__link">트롤 등록</a>
                 </div>
-                <!-- <a href="/login" id="login-button" class="Menus__login float-right" style="margin-left: auto"><span>로그인</span></a> -->
-                <div id="header-username"></div>
+                <c:choose>
+                	<c:when test="${sessionScope.userInfo == null}">
+                		<a href="/users/naverlogin" id="login-button" class="Menus__login float-right" style="margin-left: auto"><span>로그인</span></a>
+                	</c:when>
+                	<c:when test="${sessionScope.userInfo != null}">
+                		<div class="user-info">
+	                		<div>${userInfo.nickname} 님</div>
+	                		<a style="margin-left: 15px;" href="/users/logout.do" id="login-button" class="Menus__login float-right" ><span>로그아웃</span></a>
+                		</div>
+                	</c:when>
+                </c:choose>
             </div>
         </nav>
     </body>

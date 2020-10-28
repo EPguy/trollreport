@@ -23,7 +23,8 @@
 	
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</beans:bean>
-
+	
+	<beans:bean id="naverLoginBO" class="com.trollreport.gg.login.domain.NaverLoginBO"></beans:bean>
 
 	<context:component-scan base-package="com.trollreport.gg" />
 	

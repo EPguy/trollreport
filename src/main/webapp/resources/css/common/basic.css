@@ -53,7 +53,7 @@
     line-height: normal;
     border: 1px solid #01d1b2;
     color: #01d1b2 !important;
-    padding-top: .4rem;
+    padding-top: .5rem;
 }
 .Menus__login:hover {
     -webkit-animation:login   0.3s ease 1;
