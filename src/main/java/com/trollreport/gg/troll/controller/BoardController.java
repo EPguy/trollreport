@@ -4,6 +4,7 @@ import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.trollreport.gg.login.domain.UserDto;
 import com.trollreport.gg.summoner.domain.SummonerDto;
 import com.trollreport.gg.summoner.service.SummonerService;
 import com.trollreport.gg.troll.domain.TrollPostDto;
@@ -29,7 +31,16 @@ public class BoardController {
 
     @RequestMapping("/report.do")
     public ModelAndView report(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	HttpSession session = request.getSession();
+    	UserDto user = (UserDto) session.getAttribute("userInfo");
+    	
+    	if(user == null) {
+    		Messages.getScriptAlertGoBack(response, "로그인이 필요한 서비스입니다.");
+    		return null;
+    	}
+    	
     	ModelAndView mav = new ModelAndView();
+    	
     	mav.setViewName("troll/report");
     	return mav;
     }

@@ -1,5 +1,5 @@
 .index-wrapper {
-    height: calc(100vh - 15rem);
+    height: calc(100vh - 3.75rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,4 +47,62 @@
 .Menus__logo {
     width: 210px;
     height: 100px;
+}
+
+.troll-rank {
+	border-radius: .25rem;
+	margin-top: 20px;
+	width: 700px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ced4da;
+	background-color: #1e1f21;
+}
+
+.troll-top5 {
+	padding: 30px 0px 20px 0px;
+	width: 600px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.troll-top5-title {
+	width: 600px;
+	margin-bottom: 20px;
+	text-align: center;
+	color: white;
+	font-size: 1.7rem;	
+}
+
+.troll-top5 a {
+	margin-bottom:20px;
+}
+
+.troll-user-item {
+	border-radius: .25rem;
+	width: 600px;
+	padding: 15px 10px 15px 10px;
+	line-height: 80px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: white;
+	font-size: 1.5rem;
+	border: 1px solid #ced4da;
+}
+
+.troll-ranking {
+	margin-left: 20px;
+	margin-right: 50px;
+}
+.troll-name {
+	width: 350px;
+	text-align: center;
+}
+.troll-top5 a img {
+	width:60px;
+	height: 60px;
 }
