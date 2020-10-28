@@ -21,10 +21,14 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.trollreport.gg.login.domain.NaverLoginBO;
 import com.trollreport.gg.login.domain.ResultDto;
 import com.trollreport.gg.login.domain.UserDto;
+import com.trollreport.gg.login.service.LoginService;
 
 @Controller
 public class LoginController {
 
+	@Autowired
+	private LoginService loginService;
+	
     /* NaverLoginBO */
     private NaverLoginBO naverLoginBO;
     private String apiResult = null;
@@ -58,8 +62,13 @@ public class LoginController {
 
         //변환한 JSON ResultDto 객체로 변환
         ResultDto jsonToResult = objectMapper.readValue(apiResult, ResultDto.class);
+        UserDto user = jsonToResult.getResponse();
+                
+        if(loginService.getUser(user.getId()) == null) {
+        	loginService.insertUser(user);
+        } 
         
-        session.setAttribute("userInfo", jsonToResult.getResponse());
+        session.setAttribute("userInfo", user);
         return "redirect:/";
     }
     
