@@ -51,8 +51,10 @@
 
 .troll-rank {
 	border-radius: .25rem;
+	overflow:auto;
 	margin-top: 20px;
 	width: 700px;
+	height: 700px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -63,8 +65,9 @@
 .troll-top5 {
 	padding: 30px 0px 20px 0px;
 	width: 600px;
+	
+	height:700px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }

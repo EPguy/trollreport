@@ -8,7 +8,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/trollreport?serverTimezone=UTC&amp;useSSL=FALSE"/>
 		<property name="username" value="root"/>
-		<property name="password" value="48a48a48a"/>
+		<property name="password" value="~93807754aA"/>
 	</bean>	
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -17,11 +17,12 @@
 			<list>
 				<value>/resources/mappers/summoner/*.xml</value>
 				<value>/resources/mappers/troll/*.xml</value>
+				<value>/resources/mappers/login/*.xml</value>
 			</list>
 		</property>
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.trollreport.gg.summoner.mapper, com.trollreport.gg.troll.mapper"/>
+		<property name="basePackage" value="com.trollreport.gg.summoner.mapper, com.trollreport.gg.troll.mapper, com.trollreport.gg.login.mapper"/>
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />

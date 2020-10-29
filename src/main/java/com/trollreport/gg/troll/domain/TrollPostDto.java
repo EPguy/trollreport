@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TrollPostDto{
     /** 번호 (PK) */
-    private Long id;
+    private int id;
 
     /** 카테고리 */
     private String category;
@@ -40,11 +40,14 @@ public class TrollPostDto{
     /** 삭제일 */
     private String deleteTime;
     
-    public Long getId() {
+    /** 삭제일 */
+    private int likeCount;
+    
+    public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -134,5 +137,13 @@ public class TrollPostDto{
 
 	public void setDeleteTime(String deleteTime) {
 		this.deleteTime = deleteTime;
+	}
+
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
 	}
 }

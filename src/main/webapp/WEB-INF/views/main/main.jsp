@@ -18,7 +18,7 @@
                 
                 <div class="troll-rank">
                 	<div class="troll-top5">
-                		<div class="troll-top5-title">트롤랭킹 TOP5</div>
+                		<div class="troll-top5-title">트롤랭킹</div>
                 		<c:forEach varStatus="status" var = "trollUser" items="${trollListTop5}">
                    			<a href="/summoner/info.do?username=${trollUser.name}&page=1">
 					        	<div class="troll-user-item">

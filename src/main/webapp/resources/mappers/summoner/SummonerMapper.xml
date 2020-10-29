@@ -32,6 +32,6 @@
 	</select>
 	
 	<select id="getTrollListTop5" resultType="com.trollreport.gg.summoner.domain.SummonerDto">	
-		SELECT * FROM summoner_board ORDER BY trollCount DESC LIMIT 0, 5
+		SELECT * FROM summoner_board ORDER BY trollCount DESC LIMIT 0, 100
 	</select>
 </mapper>

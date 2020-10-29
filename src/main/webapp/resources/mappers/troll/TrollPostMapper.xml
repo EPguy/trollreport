@@ -20,6 +20,7 @@
 			, insertTime
 			, updateTime
 			, deleteTime
+			, likeCount
 		) VALUES (
 	        #{category}
 	        , #{title}
@@ -31,6 +32,7 @@
 	        , NOW()
 	        , NULL
 	        , NULL
+	        , 0
 		)
 	</insert>
 	
@@ -42,5 +44,19 @@
     
     <select id="getPost" parameterType="String" resultType="com.trollreport.gg.troll.domain.TrollPostDto">
         SELECT * FROM troll_board WHERE id = #{id}
+    </select>
+    
+     <insert id="createLike" parameterType="java.util.HashMap">
+        INSERT INTO trolllike_board (
+        	bid,
+        	uid
+        ) VALUES (
+        	#{bid},
+        	#{uid}
+        )
+    </insert>
+    
+    <select id="isLike" parameterType="java.util.HashMap" resultType="com.trollreport.gg.troll.domain.TrollLikeDto">
+        SELECT * FROM trolllike_board WHERE bid = #{bid} AND uid = #{uid}
     </select>
 </mapper>

@@ -1,10 +1,12 @@
 package com.trollreport.gg.troll.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Options;
 
 import com.trollreport.gg.troll.domain.SearchDto;
+import com.trollreport.gg.troll.domain.TrollLikeDto;
 import com.trollreport.gg.troll.domain.TrollPostDto;
 
 public interface TrollPostMapper {
@@ -13,4 +15,7 @@ public interface TrollPostMapper {
 	public void insertPost(TrollPostDto trollPostDto);
 	public List<TrollPostDto> getPostList(SearchDto searchDto);
 	public TrollPostDto getPost(int id);
+	@Options(useGeneratedKeys = true, keyProperty = "id")
+	public void createLike(HashMap<String, Object> map);
+	public TrollLikeDto isLike(HashMap<String, Object> map);
 }

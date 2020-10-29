@@ -1,6 +1,7 @@
 package com.trollreport.gg.troll.controller;
 
 import java.net.URLEncoder;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,6 +63,7 @@ public class BoardController {
     	
     	
         mav.addObject("icon", "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/" + troller.getProfileIconId() + ".png");
+        mav.addObject("id", id);
         mav.addObject("name", troller.getName());
         mav.addObject("title", trollPost.getTitle());
         mav.addObject("category", trollPost.getCategory());
@@ -112,6 +114,35 @@ public class BoardController {
     	
     	String trollerParam = URLEncoder.encode(troller, "UTF-8");
     	mav.setViewName("redirect:/summoner/info.do?username=" + trollerParam + "&page=1");
+    	return mav;
+    }
+    
+    @RequestMapping("/like.do")
+    public ModelAndView likeBoard(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        
+        String id = request.getParameter("id");
+        
+        TrollPostDto trollPost = trollService.getPost(Integer.parseInt(id));
+    	UserDto user = (UserDto) request.getSession().getAttribute("userInfo");
+    	
+    	if(user == null) {
+    		Messages.getScriptAlertGoBack(response, "로그인이 필요한 서비스입니다.");
+    		return null;
+    	}
+    	
+    	HashMap<String, Object> map = new HashMap<String, Object>();
+    	map.put("bid", trollPost.getId());
+    	map.put("uid", user.getId());
+    	
+    	if(trollService.isLike(map) != null)  {
+    		Messages.getScriptAlertGoBack(response, "이미 추천한 게시글입니다.");
+    		return null;
+    	}
+    	
+    	trollService.createLike(map);
+    	
+    	mav.setViewName("redirect:/troll/board.do?id="+id);
     	return mav;
     }
 }

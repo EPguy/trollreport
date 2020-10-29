@@ -21,6 +21,7 @@
                 </div>
                 <div class="troll-post-line"></div>
                 <div id="troll-post-content" class="troll-post-content">${content}</div>
+                <a href="/troll/like.do?id=${id}">추천</a>
             </div>
         </div>
         <jsp:include page="../common/footer.jsp"/>
