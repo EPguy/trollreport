@@ -38,7 +38,7 @@
 	
 	<select id="getPostList" parameterType="com.trollreport.gg.troll.domain.SearchDto" resultType="com.trollreport.gg.troll.domain.TrollPostDto">
         SELECT * FROM troll_board WHERE LOWER(REPLACE(troller, ' ', '')) = #{searchUser} 
-        ORDER BY id DESC
+        ORDER BY likeCount DESC
         LIMIT #{page}, #{line_per_page}
     </select>
     
