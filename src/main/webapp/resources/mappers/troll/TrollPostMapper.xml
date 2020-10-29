@@ -49,14 +49,28 @@
      <insert id="createLike" parameterType="java.util.HashMap">
         INSERT INTO trolllike_board (
         	bid,
-        	uid
+        	uid,
+        	isLike
         ) VALUES (
         	#{bid},
-        	#{uid}
-        )
+        	#{uid},
+        	#{isLike}
+        );
     </insert>
     
     <select id="isLike" parameterType="java.util.HashMap" resultType="com.trollreport.gg.troll.domain.TrollLikeDto">
         SELECT * FROM trolllike_board WHERE bid = #{bid} AND uid = #{uid}
     </select>
+    
+    <update id="increaseLike" parameterType="java.util.HashMap">
+        UPDATE troll_board SET likeCount=#{likeCount}+1 WHERE id=#{bid}
+    </update>
+    
+    <update id="decreaseLike" parameterType="java.util.HashMap">
+        UPDATE troll_board SET likeCount=#{likeCount}-1 WHERE id=#{bid}
+    </update>
+    
+    <insert id="insertComment" parameterType="com.trollreport.gg.troll.domain.TrollCommentDto">
+        INSERT INTO trollcomment_board (bid,uid,content,insertTime) VALUES (#{bid}, #{uid}, #{content}, NOW())
+    </insert>
 </mapper>

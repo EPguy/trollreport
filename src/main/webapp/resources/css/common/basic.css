@@ -29,6 +29,7 @@
 .Menus__link {
     font-size: 1px;
     font-size: 1.15rem;
+    font-weight: bold;
     margin-right: 1.6rem;
     user-select: none;
     position: relative;

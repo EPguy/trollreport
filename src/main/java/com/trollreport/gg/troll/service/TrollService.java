@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.trollreport.gg.troll.domain.SearchDto;
+import com.trollreport.gg.troll.domain.TrollCommentDto;
 import com.trollreport.gg.troll.domain.TrollLikeDto;
 import com.trollreport.gg.troll.domain.TrollPostDto;
 
@@ -14,4 +15,7 @@ public interface TrollService {
 	public TrollPostDto getPost(int id);
 	public void createLike(HashMap<String, Object> map);
 	public TrollLikeDto isLike(HashMap<String, Object> map);
+	public void increaseLike(HashMap<String, Object> map);
+	public void decreaseLike(HashMap<String, Object> map);
+	public void insertComment(TrollCommentDto trollComment);
 }

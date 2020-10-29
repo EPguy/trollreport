@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.trollreport.gg.login.domain.UserDto;
 import com.trollreport.gg.summoner.domain.SummonerDto;
 import com.trollreport.gg.summoner.service.SummonerService;
+import com.trollreport.gg.troll.domain.TrollCommentDto;
 import com.trollreport.gg.troll.domain.TrollPostDto;
 import com.trollreport.gg.troll.service.TrollService;
 import com.trollreport.gg.util.Messages;
@@ -117,8 +118,8 @@ public class BoardController {
     	return mav;
     }
     
-    @RequestMapping("/like.do")
-    public ModelAndView likeBoard(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    @RequestMapping("/increaseLike.do")
+    public ModelAndView increaseLike(HttpServletRequest request, HttpServletResponse response) throws Exception{
         ModelAndView mav = new ModelAndView();
         
         String id = request.getParameter("id");
@@ -134,13 +135,77 @@ public class BoardController {
     	HashMap<String, Object> map = new HashMap<String, Object>();
     	map.put("bid", trollPost.getId());
     	map.put("uid", user.getId());
+    	map.put("likeCount", trollPost.getLikeCount());
+    	map.put("isLike", 1);
     	
     	if(trollService.isLike(map) != null)  {
-    		Messages.getScriptAlertGoBack(response, "이미 추천한 게시글입니다.");
+    		Messages.getScriptAlertGoBack(response, "이미 투표한 게시글입니다.");
     		return null;
     	}
     	
     	trollService.createLike(map);
+    	trollService.increaseLike(map);
+    	mav.setViewName("redirect:/troll/board.do?id="+id);
+    	return mav;
+    }
+    
+    @RequestMapping("/decreaseLike.do")
+    public ModelAndView descreaseLike(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        
+        String id = request.getParameter("id");
+        
+        TrollPostDto trollPost = trollService.getPost(Integer.parseInt(id));
+    	UserDto user = (UserDto) request.getSession().getAttribute("userInfo");
+    	
+    	if(user == null) {
+    		Messages.getScriptAlertGoBack(response, "로그인이 필요한 서비스입니다.");
+    		return null;
+    	}
+    	
+    	HashMap<String, Object> map = new HashMap<String, Object>();
+    	map.put("bid", trollPost.getId());
+    	map.put("uid", user.getId());
+    	map.put("likeCount", trollPost.getLikeCount());
+    	map.put("isLike", 0);
+    	
+    	if(trollService.isLike(map) != null)  {
+    		Messages.getScriptAlertGoBack(response, "이미 투표한 게시글입니다.");
+    		return null;
+    	}
+    	
+    	trollService.createLike(map);
+    	trollService.decreaseLike(map);
+    	mav.setViewName("redirect:/troll/board.do?id="+id);
+    	return mav;
+    }
+    
+    @RequestMapping("/insertComment.do")
+    public ModelAndView insertComment(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        
+        String id = request.getParameter("id");
+        String content = request.getParameter("content");
+        
+        TrollPostDto trollPost = trollService.getPost(Integer.parseInt(id));
+    	UserDto user = (UserDto) request.getSession().getAttribute("userInfo");
+    	
+    	if(user == null) {
+    		Messages.getScriptAlertGoBack(response, "로그인이 필요한 서비스입니다.");
+    		return null;
+    	}
+    	
+    	if(content.replace(" ", "").equals("")) {
+    		Messages.getScriptAlertGoBack(response, "내용을 입력해 주세요.");
+    		return null;
+    	}
+    	
+    	TrollCommentDto trollComment = new TrollCommentDto();
+    	trollComment.setContent(content);
+    	trollComment.setUid(user.getId());
+    	trollComment.setBid(trollPost.getId());
+    	
+    	trollService.insertComment(trollComment);
     	
     	mav.setViewName("redirect:/troll/board.do?id="+id);
     	return mav;

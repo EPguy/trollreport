@@ -7,6 +7,7 @@ public class TrollLikeDto {
 	private int id;
 	private int bid;
 	private int uid;
+	private int isLike;
 	
 	public int getId() {
 		return id;
@@ -26,6 +27,10 @@ public class TrollLikeDto {
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
-	
-	
+	public int getIsLike() {
+		return isLike;
+	}
+	public void setIsLike(int isLike) {
+		this.isLike = isLike;
+	}
 }
