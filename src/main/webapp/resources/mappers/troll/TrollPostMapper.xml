@@ -73,4 +73,8 @@
     <insert id="insertComment" parameterType="com.trollreport.gg.troll.domain.TrollCommentDto">
         INSERT INTO trollcomment_board (bid,uid,content,insertTime) VALUES (#{bid}, #{uid}, #{content}, NOW())
     </insert>
+    
+    <select id="getTrollBoardTop5" resultType="com.trollreport.gg.troll.domain.TrollPostDto">
+        SELECT * FROM troll_board ORDER BY likeCount DESC LIMIT 0,5
+    </select>
 </mapper>

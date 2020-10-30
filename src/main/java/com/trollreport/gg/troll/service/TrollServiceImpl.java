@@ -65,4 +65,9 @@ public class TrollServiceImpl implements TrollService {
     public void insertComment(TrollCommentDto trollComment) {
     	trollPostMapper.insertComment(trollComment);
     }
+    
+    @Override
+    public List<TrollPostDto> getTrollBoardTop5() {
+    	return trollPostMapper.getTrollBoardTop5();
+    }
 }

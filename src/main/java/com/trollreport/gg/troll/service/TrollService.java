@@ -18,4 +18,5 @@ public interface TrollService {
 	public void increaseLike(HashMap<String, Object> map);
 	public void decreaseLike(HashMap<String, Object> map);
 	public void insertComment(TrollCommentDto trollComment);
+	public List<TrollPostDto> getTrollBoardTop5();
 }

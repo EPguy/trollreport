@@ -19,6 +19,7 @@ import com.trollreport.gg.summoner.service.SummonerService;
 import com.trollreport.gg.troll.domain.TrollCommentDto;
 import com.trollreport.gg.troll.domain.TrollPostDto;
 import com.trollreport.gg.troll.service.TrollService;
+import com.trollreport.gg.util.GetIP;
 import com.trollreport.gg.util.Messages;
 
 @Controller
@@ -76,7 +77,8 @@ public class BoardController {
     
     @RequestMapping("/insert.do")
     public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ModelAndView mav = new ModelAndView();
+    	System.out.println(GetIP.etRemoteAddr(request));
+    	ModelAndView mav = new ModelAndView();
         
         String category = request.getParameter("category");
         String title = request.getParameter("title");
