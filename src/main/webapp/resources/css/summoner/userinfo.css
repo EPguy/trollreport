@@ -104,9 +104,9 @@
     height: 40px;
     line-height: 40px;
     font-weight: 700;
-    border: 1px solid #38d9a9;
+    border: 1px solid none;
     border-radius: 0.2rem;
-    background-color: #38d9a9;
+    background-color: #ed6767;
     color: black;
     transition: background-color 0.3s linear;
 }

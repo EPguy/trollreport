@@ -8,7 +8,7 @@
 .troll-post-wrapper {
     margin-top: 50px;
     margin-bottom: 50px;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -35,7 +35,7 @@
 }
 
 .troll-post-line {
-    width: 1160px;
+    width: 1118px;
     height: 0.1px;
     margin-top: 13px;
     margin-bottom: 17px;
@@ -131,7 +131,7 @@
 
 /* ÃßÃµ */
 .troll-post-like {
-	width: 1158px;
+	width: 1118px;
 	height: 50px;
 	display: flex;
 	justify-content: center;
@@ -163,7 +163,7 @@
 	height: 40px;
 	border-radius: 5px;
 	margin-top: 20px;
-	width: 1070px;
+	width: 1030px;
 	padding: 0px 82px 0 13px;
 	background-color: #27282d;
 	
@@ -191,7 +191,7 @@
 
 .troll-post-comment {
 	padding: 10px 0px 10px 0px;
-	width: 1158px;
+	width: 1118px;
 }
 
 .troll-post-comment:nth-child(n+2) {
