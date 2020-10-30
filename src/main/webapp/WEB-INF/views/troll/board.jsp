@@ -45,7 +45,7 @@
                 	<div class="troll-post-sub-top">
                         <div class="troll-post-title">${title}</div>
 	                    <div class="troll-post-title-line"></div>
-	                    <div class="troll-post-title">${name}</div>
+	                    <div onClick="location.href = '/summoner/info.do?username=${name}&page=1'" style="cursor:pointer;" class="troll-post-title">${name}</div>
                     </div>
                     <div class="troll-post-sub-top">
                         <!--<div class="troll-post-category-line"></div>-->

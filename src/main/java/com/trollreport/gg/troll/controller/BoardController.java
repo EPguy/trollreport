@@ -54,6 +54,11 @@ public class BoardController {
     public ModelAndView board(HttpServletRequest request, HttpServletResponse response) throws Exception{
         ModelAndView mav = new ModelAndView();
         
+        if(request.getParameter("id") == null) {
+        	Messages.getScriptAlertGoBack(response, "잘못된 접근입니다.");
+        	return null;
+        }
+        
         String id = request.getParameter("id");
         
         TrollPostDto trollPost = trollService.getPost(Integer.parseInt(id));

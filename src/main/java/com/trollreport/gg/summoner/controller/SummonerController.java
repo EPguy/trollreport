@@ -30,9 +30,15 @@ public class SummonerController {
     @RequestMapping("/info.do")
     public ModelAndView user(HttpServletRequest request, HttpServletResponse response) throws Exception{
     	if(request.getParameter("page") == null) {
-    		Messages.getScriptAlertGoBack(response, "잘못된 페이지입니다.");
+    		Messages.getScriptAlertGoBack(response, "잘못된 접근입니다.");
     		return null;
     	}
+    	
+    	if(request.getParameter("username") == null) {
+    		Messages.getScriptAlertGoBack(response, "잘못된 접근입니다.");
+    		return null;
+    	}
+    	
     	
     	ModelAndView mav = new ModelAndView();
     	int page = Integer.parseInt(request.getParameter("page"));
