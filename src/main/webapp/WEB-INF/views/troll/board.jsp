@@ -51,7 +51,7 @@
                         <!--<div class="troll-post-category-line"></div>-->
                         <div class="troll-post-category">${category}</div>
                         <div class="troll-post-category-line"></div>
-                        <div class="troll-post-category">${writer} 님</div>
+                        <div class="troll-post-category">${writer} 님 작성</div>
                     </div>
                 </div>
                 <div class="troll-post-line"></div>
