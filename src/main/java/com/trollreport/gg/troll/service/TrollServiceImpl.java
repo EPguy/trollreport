@@ -70,4 +70,9 @@ public class TrollServiceImpl implements TrollService {
     public List<TrollPostDto> getTrollBoardTop5() {
     	return trollPostMapper.getTrollBoardTop5();
     }
+    
+    @Override
+    public List<TrollCommentDto> getCommentList(int id) {
+    	return trollPostMapper.getCommentList(id);
+    }
 }

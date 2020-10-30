@@ -10,6 +10,7 @@ public class TrollCommentDto {
     private int bid;
     private int uid;
     private String content;
+    private String uname;
     private Date insertTime;
     
 	public int getId() {
@@ -30,6 +31,7 @@ public class TrollCommentDto {
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
+	
 	public String getContent() {
 		return content;
 	}
@@ -42,6 +44,10 @@ public class TrollCommentDto {
 	public void setInsertTime(Date insertTime) {
 		this.insertTime = insertTime;
 	}
-    
-    
+	public String getUname() {
+		return uname;
+	}
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
 }

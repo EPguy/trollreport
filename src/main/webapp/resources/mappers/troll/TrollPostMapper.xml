@@ -71,10 +71,14 @@
     </update>
     
     <insert id="insertComment" parameterType="com.trollreport.gg.troll.domain.TrollCommentDto">
-        INSERT INTO trollcomment_board (bid,uid,content,insertTime) VALUES (#{bid}, #{uid}, #{content}, NOW())
+        INSERT INTO trollcomment_board (bid,uid,content,insertTime,uname) VALUES (#{bid}, #{uid}, #{content}, NOW(), #{uname})
     </insert>
     
     <select id="getTrollBoardTop5" resultType="com.trollreport.gg.troll.domain.TrollPostDto">
         SELECT * FROM troll_board ORDER BY likeCount DESC LIMIT 0,5
+    </select>
+    
+    <select id="getCommentList" parameterType="int" resultType="com.trollreport.gg.troll.domain.TrollCommentDto">
+        SELECT * FROM trollcomment_board WHERE bid = #{id} ORDER BY insertTime DESC 
     </select>
 </mapper>

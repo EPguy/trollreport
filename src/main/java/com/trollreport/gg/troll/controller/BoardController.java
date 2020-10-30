@@ -2,6 +2,7 @@ package com.trollreport.gg.troll.controller;
 
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import com.trollreport.gg.troll.domain.TrollPostDto;
 import com.trollreport.gg.troll.service.TrollService;
 import com.trollreport.gg.util.GetIP;
 import com.trollreport.gg.util.Messages;
+import com.trollreport.gg.util.TimeCalc;
 
 @Controller
 @RequestMapping(value = "/troll")
@@ -56,6 +58,7 @@ public class BoardController {
         
         TrollPostDto trollPost = trollService.getPost(Integer.parseInt(id));
     	SummonerDto troller = summonerService.selectSummonerByName(trollPost.getTroller());
+    	List<TrollCommentDto> commentList = trollService.getCommentList(trollPost.getId());
     	
     	if(trollPost.getCategory().equals("วัมูฦ๒")) {
     		System.out.println("hi");
@@ -63,9 +66,9 @@ public class BoardController {
     		return null;
     	}
     	
-    	
         mav.addObject("icon", "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/" + troller.getProfileIconId() + ".png");
         mav.addObject("id", id);
+        mav.addObject("commentList", commentList);
         mav.addObject("name", troller.getName());
         mav.addObject("unlikeCount", trollPost.getUnlikeCount());
         mav.addObject("likeCount", trollPost.getLikeCount());
@@ -210,7 +213,8 @@ public class BoardController {
     	trollComment.setContent(content);
     	trollComment.setUid(user.getId());
     	trollComment.setBid(trollPost.getId());
-    	
+    	trollComment.setUname(user.getNickname());
+
     	trollService.insertComment(trollComment);
     	
     	mav.setViewName("redirect:/troll/board.do?id="+id);

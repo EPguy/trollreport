@@ -23,5 +23,6 @@ public interface TrollPostMapper {
 	public void decreaseLike(HashMap<String, Object> map);
 	@Options(useGeneratedKeys = true, keyProperty = "id")
 	public void insertComment(TrollCommentDto trollComment);
+	public List<TrollCommentDto> getCommentList(int id);
 	public List<TrollPostDto> getTrollBoardTop5();
 }

@@ -7,6 +7,7 @@
 
 .troll-post-wrapper {
     margin-top: 50px;
+    margin-bottom: 50px;
     padding: 20px;
     display: flex;
     justify-content: flex-start;
@@ -156,7 +157,7 @@
 }
 
 /* ´ñ±Û */
-.troll-post-comment input{
+.troll-post-comment-form input{
 	color: white;
 	border: 1px solid #b3b3b3;
 	height: 40px;
@@ -167,7 +168,7 @@
 	background-color: #27282d;
 	
 }
-.troll-post-comment button {
+.troll-post-comment-form button {
 	display: inline-block;
     margin-top: 10px;
     cursor: pointer;
@@ -176,9 +177,40 @@
     height: 40px;
     line-height: 40px;
     font-weight: 700;
-    border: 1px solid #38d9a9;
+    border: 1px solid none;
     border-radius: 0.2rem;
-    background-color: #38d9a9;
+    background-color: #ed6767;
     color: black;
     transition: background-color 0.3s linear;
+}
+
+.troll-post-comment-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.troll-post-comment {
+	padding: 10px 0px 10px 0px;
+	width: 1158px;
+}
+
+.troll-post-comment:nth-child(n+2) {
+	margin-top: 5px;
+	border-top: 1px solid #3b3c40;
+}
+
+.troll-post-comment-name{
+	color: white;
+	font-size:18px;
+	font-weight: bold;
+}
+
+.troll-post-comment-content {
+	margin-top: 4px;
+}
+
+.troll-post-comment-date {
+	font-size:13px;
+	float:left;
+	color: #999;
 }

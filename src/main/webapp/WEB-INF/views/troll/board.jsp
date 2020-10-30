@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="ko">
 	<head>
         <meta charset="UTF-8">
@@ -12,6 +13,28 @@
     			frm.id.value = "${id}";
     			frm.submit();
     		}
+    		function timeForToday(value) {
+    	        const today = new Date();
+    	        const timeValue = new Date(value);
+
+    	        const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
+    	        if (betweenTime < 1) return '방금전';
+    	        if (betweenTime < 60) {
+    	            return `${betweenTime}분전`;
+    	        }
+
+    	        const betweenTimeHour = Math.floor(betweenTime / 60);
+    	        if (betweenTimeHour < 24) {
+    	            return `${betweenTimeHour}시간전`;
+    	        }
+
+    	        const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+    	        if (betweenTimeDay < 365) {
+    	            return `${betweenTimeDay}일전`;
+    	        }
+
+    	        return `${Math.floor(betweenTimeDay / 365)}년전`;
+    	 }
     	</script>
     </head>
     <body>
@@ -28,7 +51,7 @@
                         <!--<div class="troll-post-category-line"></div>-->
                         <div class="troll-post-category">${category}</div>
                         <div class="troll-post-category-line"></div>
-                        <div class="troll-post-category">${writer}</div>
+                        <div class="troll-post-category">${writer} 님</div>
                     </div>
                 </div>
                 <div class="troll-post-line"></div>
@@ -47,11 +70,20 @@
 	                	</div>
                 	</a>
                 </div>
-                <form class="troll-post-comment" name="trollComment">
+                <form class="troll-post-comment-form" onsubmit="return false" name="trollComment">
                 	<input type="hidden" name="id">
                 	<input name="content" class="troll-comment" type="text" placeholder="댓글입력">
                 	<button class="comment-post" onClick="commentPost();" type="button">입력</button>
             	</form>
+            	<div class="troll-post-comment-list">
+            		<c:forEach varStatus="status" var = "comment" items="${commentList}">
+			        	<div class="troll-post-comment">
+			        		<div class="troll-post-comment-name">${comment.uname}</div>
+			        		<div class="troll-post-comment-content">${comment.content}</div>
+							<div class="troll-post-comment-date"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${comment.insertTime}" /></div>
+                        </div>
+			        </c:forEach>
+            	</div>
             </div>
         </div>
         <jsp:include page="../common/footer.jsp"/>

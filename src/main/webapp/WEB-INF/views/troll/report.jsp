@@ -30,6 +30,7 @@
 	                            <option value="욕설">욕설</option>
 	                            <option value="탈주/자리비움">탈주/자리비움</option>
 	                            <option value="고의트롤">고의트롤</option>
+	                            <option value="기타">기타</option>
 	                        </select>
 	                    </div>
 	                    <div class="editor-title">
