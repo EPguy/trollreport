@@ -8,7 +8,7 @@
 .search-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -25,13 +25,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 700px;
+    width: 800px;
     height: 60px;
 }
 .main-search input{
     float: left;
     font-size: 16px;
-    width: 656px;
+    width: 756px;
     border: 0;
     line-height: 60px;
     padding: 0 32px 0 12px;
@@ -50,34 +50,32 @@
 }
 
 .troll-rank {
-	border-radius: .25rem;
-	overflow:auto;
 	margin-top: 20px;
-	width: 700px;
-	height: 700px;
+	width: 800px;
+	height: 590px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	border: 1px solid #ced4da;
 	background-color: #1e1f21;
 }
 
 .troll-top5 {
-	padding: 30px 0px 20px 0px;
-	width: 600px;
-	
-	height:700px;
+	padding: 20px 10px 10px 10px;
+	border-radius: .25rem;
+	border: 1px solid #ced4da;
+	width: 380px;	
+	height:590px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
 
 .troll-top5-title {
-	width: 600px;
+	width: 400px;
 	margin-bottom: 20px;
 	text-align: center;
 	color: white;
-	font-size: 1.7rem;	
+	font-size: 1.5rem;	
 }
 
 .troll-top5 a {
@@ -86,26 +84,40 @@
 
 .troll-user-item {
 	border-radius: .25rem;
-	width: 600px;
-	padding: 15px 10px 15px 10px;
+	width: 350px;
+	height: 80px;
+	padding: 10px 5px 10px 5px;
 	line-height: 80px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	color: white;
-	font-size: 1.5rem;
-	border: 1px solid #ced4da;
+	font-size: 1.1rem;
+	border: 1px solid #495057;
 }
 
 .troll-ranking {
+	width:30px;	
+	text-align:center;
 	margin-left: 20px;
-	margin-right: 50px;
+	margin-right: 20px;
 }
+
+.troll-count {
+	width: 50px;	
+}
+
 .troll-name {
-	width: 350px;
+	width: 170px;
 	text-align: center;
 }
 .troll-top5 a img {
-	width:60px;
-	height: 60px;
+	width:50px;
+	height: 50px;
+}
+.troll-content {
+	width: 230px;
+	height: 80px;
+	text-align: center;
+	
 }
