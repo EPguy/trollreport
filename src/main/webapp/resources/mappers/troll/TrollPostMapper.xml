@@ -63,11 +63,11 @@
     </select>
     
     <update id="increaseLike" parameterType="java.util.HashMap">
-        UPDATE troll_board SET likeCount=#{likeCount}+1 WHERE id=#{bid}
+        UPDATE troll_board SET likeCount=#{likeCount}+1, totalLikeCount=(#{likeCount}+1)-#{unlikeCount} WHERE id=#{bid}
     </update>
     
     <update id="decreaseLike" parameterType="java.util.HashMap">
-        UPDATE troll_board SET likeCount=#{likeCount}-1 WHERE id=#{bid}
+        UPDATE troll_board SET unlikeCount=#{unlikeCount}+1, totalLikeCount=#{likeCount}-(#{unlikeCount}+1) WHERE id=#{bid}
     </update>
     
     <insert id="insertComment" parameterType="com.trollreport.gg.troll.domain.TrollCommentDto">

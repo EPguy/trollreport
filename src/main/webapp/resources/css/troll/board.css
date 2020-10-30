@@ -6,12 +6,16 @@
 }
 
 .troll-post-wrapper {
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 20px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     width: 1200px;
+    min-height: 700px;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+    background-color: #1e1f21;
 }
 
 .troll-post-top {
@@ -37,6 +41,14 @@
     border-top: 1px solid #3f3f45;
 }
 
+.troll-post-title-line {
+	margin-left: 10px;
+    margin-right: 10px;
+    width: 1px;
+    height: 25px;
+    border-left: 1px solid white;
+}
+
 .troll-post-category-line {
     margin-left: 10px;
     margin-right: 10px;
@@ -45,8 +57,8 @@
     border-left: 1px solid white;
 }
 
-.troll-post-content-temp {
-    display: none;
+.troll-post-content {
+	min-height: 500px;
 }
 
 /*헤더*/
@@ -114,4 +126,59 @@
 }
 .Summoner_Prefer {
     width: 650px;
+}
+
+/* 추천 */
+.troll-post-like {
+	width: 1158px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid #3b3c40;
+	border-bottom: 1px solid #3b3c40;
+}
+
+.like-button {
+	margin-left: 5px;
+	display: flex;
+	padding: 0 13px;
+	line-height: 32px;
+	justify-content:center;
+	border: 1px solid #d6dae0;
+	border-radius: 3px;
+	font-weight: 600;
+    color: #979a9e;
+}
+
+.like-button .like-count {
+	margin-left: 2px;
+}
+
+/* 댓글 */
+.troll-post-comment input{
+	color: white;
+	border: 1px solid #b3b3b3;
+	height: 40px;
+	border-radius: 5px;
+	margin-top: 20px;
+	width: 1070px;
+	padding: 0px 82px 0 13px;
+	background-color: #27282d;
+	
+}
+.troll-post-comment button {
+	display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    border: 1px solid #38d9a9;
+    border-radius: 0.2rem;
+    background-color: #38d9a9;
+    color: black;
+    transition: background-color 0.3s linear;
 }

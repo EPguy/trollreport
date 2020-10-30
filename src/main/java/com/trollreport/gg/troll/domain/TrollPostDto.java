@@ -40,8 +40,11 @@ public class TrollPostDto{
     /** 昏力老 */
     private String deleteTime;
     
-    /** 昏力老 */
     private int likeCount;
+    
+    private int unlikeCount;
+    
+    private int totalLikeCount;
     
     public int getId() {
 		return id;
@@ -146,4 +149,21 @@ public class TrollPostDto{
 	public void setLikeCount(int likeCount) {
 		this.likeCount = likeCount;
 	}
+
+	public int getUnlikeCount() {
+		return unlikeCount;
+	}
+
+	public void setUnlikeCount(int unlikeCount) {
+		this.unlikeCount = unlikeCount;
+	}
+
+	public int getTotalLikeCount() {
+		return totalLikeCount;
+	}
+
+	public void setTotalLikeCount(int totalLikeCount) {
+		this.totalLikeCount = totalLikeCount;
+	}
+	
 }

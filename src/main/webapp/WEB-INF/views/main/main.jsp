@@ -38,7 +38,7 @@
 					        	<div class="troll-user-item">
 					        		<div class="troll-ranking">${status.count}위</div>
 		                            <div class="troll-content">${trollBoard.content}</div>
-		                            <div class="troll-count">${trollBoard.likeCount}개</div>
+		                            <div style="margin-left:20px;" class="troll-count">${trollBoard.totalLikeCount}개</div>
 		                        </div>
 	                        </a>
 				        </c:forEach>

@@ -19,7 +19,11 @@
         <div class="troll-post">
             <div class="troll-post-wrapper">
                 <div class="troll-post-top">
-                    <div class="troll-post-title">${title}</div>
+                	<div class="troll-post-sub-top">
+                        <div class="troll-post-title">${title}</div>
+	                    <div class="troll-post-title-line"></div>
+	                    <div class="troll-post-title">${name}</div>
+                    </div>
                     <div class="troll-post-sub-top">
                         <!--<div class="troll-post-category-line"></div>-->
                         <div class="troll-post-category">${category}</div>
@@ -29,12 +33,24 @@
                 </div>
                 <div class="troll-post-line"></div>
                 <div id="troll-post-content" class="troll-post-content">${content}</div>
-                <a href="/troll/increaseLike.do?id=${id}">추천</a>
-                <a href="/troll/decreaseLike.do?id=${id}">추천</a>
-                <form name="trollComment">
+                <div class="troll-post-like">
+                	<a href="/troll/increaseLike.do?id=${id}">
+	                	<div class="like-button">
+		                	<div class="like-emoji">&#128077;</div>
+		                	<div class="like-count">${likeCount}</div>
+	                	</div>
+                	</a>
+                	<a href="/troll/decreaseLike.do?id=${id}">
+	                	<div class="like-button">
+	                		<div class="like-emoji">&#128078;</div>
+	                		<div class="like-count">${unlikeCount}</div>
+	                	</div>
+                	</a>
+                </div>
+                <form class="troll-post-comment" name="trollComment">
                 	<input type="hidden" name="id">
-                	<input name="content" id="troll-comment" type="text" placeholder="댓글입력">
-                	<button onClick="commentPost();" type="button">댓글입력</button>
+                	<input name="content" class="troll-comment" type="text" placeholder="댓글입력">
+                	<button class="comment-post" onClick="commentPost();" type="button">입력</button>
             	</form>
             </div>
         </div>

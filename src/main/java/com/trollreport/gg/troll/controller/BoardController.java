@@ -67,6 +67,8 @@ public class BoardController {
         mav.addObject("icon", "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/" + troller.getProfileIconId() + ".png");
         mav.addObject("id", id);
         mav.addObject("name", troller.getName());
+        mav.addObject("unlikeCount", trollPost.getUnlikeCount());
+        mav.addObject("likeCount", trollPost.getLikeCount());
         mav.addObject("title", trollPost.getTitle());
         mav.addObject("category", trollPost.getCategory());
         mav.addObject("writer", trollPost.getWriter());
@@ -138,6 +140,7 @@ public class BoardController {
     	map.put("bid", trollPost.getId());
     	map.put("uid", user.getId());
     	map.put("likeCount", trollPost.getLikeCount());
+    	map.put("unlikeCount", trollPost.getUnlikeCount());
     	map.put("isLike", 1);
     	
     	if(trollService.isLike(map) != null)  {
@@ -169,6 +172,7 @@ public class BoardController {
     	map.put("bid", trollPost.getId());
     	map.put("uid", user.getId());
     	map.put("likeCount", trollPost.getLikeCount());
+    	map.put("unlikeCount", trollPost.getUnlikeCount());
     	map.put("isLike", 0);
     	
     	if(trollService.isLike(map) != null)  {
