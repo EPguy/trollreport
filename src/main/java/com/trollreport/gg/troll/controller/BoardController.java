@@ -123,7 +123,7 @@ public class BoardController {
         trollPost.setTroller(trollerName);
     	trollService.insertPost(trollPost);
     	
-    	summonerService.updateTrollCount(trollerDto);
+    	//summonerService.updateTrollCount(trollerDto);
     	
     	String trollerParam = URLEncoder.encode(troller, "UTF-8");
     	mav.setViewName("redirect:/summoner/info.do?username=" + trollerParam + "&page=1");
