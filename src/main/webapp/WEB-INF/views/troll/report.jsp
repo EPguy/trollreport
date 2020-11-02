@@ -21,6 +21,7 @@
 		<div class="report">
             <div class="report-wrapper">
                 <img src="${pageContext.request.contextPath}/resources/image/troll/reportLogo.png">
+                <div class="troll-post-notice">!! 트롤일자, 자세한 트롤내용, 증거 이미지/동영상 등을 포함하지 않으면 반려 될 수 있습니다. !!</div>
                 <form name="trollPost">
                 	<input type="hidden" name="writer">
 	                <div class="post-wrapper">

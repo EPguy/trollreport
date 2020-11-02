@@ -86,3 +86,8 @@
 	min-height: 500px;
 	max-height: 500px;
 }
+
+.troll-post-notice {
+	font-size: 16px;
+	color: red;
+}
