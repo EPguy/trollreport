@@ -18,11 +18,12 @@
 				<value>/resources/mappers/summoner/*.xml</value>
 				<value>/resources/mappers/troll/*.xml</value>
 				<value>/resources/mappers/login/*.xml</value>
+				<value>/resources/mappers/mypage/*.xml</value>
 			</list>
 		</property>
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.trollreport.gg.summoner.mapper, com.trollreport.gg.troll.mapper, com.trollreport.gg.login.mapper"/>
+		<property name="basePackage" value="com.trollreport.gg.summoner.mapper, com.trollreport.gg.troll.mapper, com.trollreport.gg.login.mapper, com.trollreport.gg.mypage.mapper"/>
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />

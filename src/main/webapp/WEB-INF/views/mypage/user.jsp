@@ -18,13 +18,18 @@
         				<c:forEach var = "noConfirm" items="${noConfirmList}">
                    			<a href="/troll/board.do?id=${noConfirm.id}">
 					        	<div class="troll-post-item">
-		                            <div class="troll-title">${noConfirm.title}</div>
-		                            <div class="troll-bottom">
-		                                <div class="troll-category">${noConfirm.category}</div>
-		                                <div class="troll-bottom-line"></div>
-		                                <div class="troll-time">${noConfirm.insertTime}</div>
-		                                <div class="troll-bottom-line"></div>
-		                                <div class="troll-writer">${noConfirm.writer}</div>
+					        		<div class="troll-post-left">
+			                            <div class="troll-title">${noConfirm.title}</div>
+			                            <div class="troll-bottom">
+			                                <div class="troll-category">${noConfirm.category}</div>
+			                                <div class="troll-bottom-line"></div>
+			                                <div class="troll-time">${noConfirm.insertTime}</div>
+			                                <div class="troll-bottom-line"></div>
+			                                <div class="troll-writer">${noConfirm.writer}</div>
+			                            </div>
+		                            </div>
+		                            <div class="troll-post-right">
+		                            	<div class="troll-post-delete">삭제</div>
 		                            </div>
 		                        </div>
 	                        </a>
@@ -39,13 +44,18 @@
         				<c:forEach var = "yesConfirm" items="${yesConfirmList}">
                    			<a href="/troll/board.do?id=${yesConfirm.id}">
 					        	<div class="troll-post-item">
-		                            <div class="troll-title">${yesConfirm.title}</div>
-		                            <div class="troll-bottom">
-		                                <div class="troll-category">${yesConfirm.category}</div>
-		                                <div class="troll-bottom-line"></div>
-		                                <div class="troll-time">${yesConfirm.insertTime}</div>
-		                                <div class="troll-bottom-line"></div>
-		                                <div class="troll-writer">${yesConfirm.writer}</div>
+					        		<div class="troll-post-left">
+			                            <div class="troll-title">${yesConfirm.title}</div>
+			                            <div class="troll-bottom">
+			                                <div class="troll-category">${yesConfirm.category}</div>
+			                                <div class="troll-bottom-line"></div>
+			                                <div class="troll-time">${yesConfirm.insertTime}</div>
+			                                <div class="troll-bottom-line"></div>
+			                                <div class="troll-writer">${yesConfirm.writer}</div>
+			                            </div>
+		                            </div>
+		                            <div class="troll-post-right">
+		                            	<div class="troll-post-delete">삭제</div>
 		                            </div>
 		                        </div>
 	                        </a>
