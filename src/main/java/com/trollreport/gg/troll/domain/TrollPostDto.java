@@ -46,6 +46,8 @@ public class TrollPostDto{
     
     private int totalLikeCount;
     
+    private int trollConfirm;
+    
     public int getId() {
 		return id;
 	}
@@ -165,5 +167,12 @@ public class TrollPostDto{
 	public void setTotalLikeCount(int totalLikeCount) {
 		this.totalLikeCount = totalLikeCount;
 	}
-	
+
+	public int getTrollConfirm() {
+		return trollConfirm;
+	}
+
+	public void setTrollConfirm(int trollConfirm) {
+		this.trollConfirm = trollConfirm;
+	}
 }

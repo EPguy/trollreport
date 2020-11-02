@@ -5,7 +5,7 @@
 <mapper namespace="com.trollreport.gg.troll.mapper.TrollPostMapper">
 
 	<select id="getTrollPostCount" parameterType="String" resultType="int">
-		SELECT Count(*) FROM troll_board where troller = #{name} AND troll_confirm = 1
+		SELECT Count(*) FROM troll_board where troller = #{name} AND trollConfirm = 1
 	</select>
 	
 	<insert id="insertPost" parameterType="com.trollreport.gg.troll.domain.TrollPostDto">
@@ -21,7 +21,7 @@
 			, updateTime
 			, deleteTime
 			, likeCount
-			, troll_confirm
+			, trollConfirm
 		) VALUES (
 	        #{category}
 	        , #{title}
@@ -39,7 +39,7 @@
 	</insert>
 	
 	<select id="getPostList" parameterType="com.trollreport.gg.troll.domain.SearchDto" resultType="com.trollreport.gg.troll.domain.TrollPostDto">
-        SELECT * FROM troll_board WHERE LOWER(REPLACE(troller, ' ', '')) = #{searchUser} AND troll_confirm = 1
+        SELECT * FROM troll_board WHERE LOWER(REPLACE(troller, ' ', '')) = #{searchUser} AND trollConfirm = 1
         ORDER BY likeCount DESC
         LIMIT #{page}, #{line_per_page}
     </select>
@@ -77,7 +77,7 @@
     </insert>
     
     <select id="getTrollBoardTop5" resultType="com.trollreport.gg.troll.domain.TrollPostDto">
-        SELECT * FROM troll_board WHERE troll_confirm = 1 ORDER BY likeCount DESC LIMIT 0,5
+        SELECT * FROM troll_board where trollConfirm = 1 ORDER BY likeCount DESC LIMIT 0,5
     </select>
     
     <select id="getCommentList" parameterType="int" resultType="com.trollreport.gg.troll.domain.TrollCommentDto">
