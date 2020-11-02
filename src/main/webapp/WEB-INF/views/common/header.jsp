@@ -21,7 +21,7 @@
     <body>
         <nav class="Navigation">
             <div class="container" style="justify-content: flex-start">
-                <a href="/" class="Menus__link Gilroy brand">TrollReport.GG</a>
+                <a href="/" class="Menus__link Gilroy brand">트롤검색.KR</a>
                 <div class="link-items">
                     <a href="/troll/report.do" class="Menus__link">트롤 등록</a>
                 </div>
@@ -31,7 +31,7 @@
                 	</c:when>
                 	<c:when test="${sessionScope.userInfo != null}">
                 		<div class="user-info">
-	                		<div>${userInfo.nickname} 님</div>
+	                		<div><a href="/mypage/user.do">${userInfo.nickname} 님</a></div>
 	                		<a style="margin-left: 15px;" href="/users/logout.do" id="login-button" class="Menus__login float-right" ><span>로그아웃</span></a>
                 		</div>
                 	</c:when>

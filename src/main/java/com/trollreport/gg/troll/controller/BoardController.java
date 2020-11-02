@@ -65,6 +65,11 @@ public class BoardController {
     	SummonerDto troller = summonerService.selectSummonerByName(trollPost.getTroller());
     	List<TrollCommentDto> commentList = trollService.getCommentList(trollPost.getId());
     	
+//    	if(trollPost.getTrollConfirm() == 0) {
+//        	Messages.getScriptAlertGoBack(response, "아직 검증되지 않은 글입니다.");
+//        	return null;
+//        }
+    	
     	if(trollPost.getCategory().equals("한줄평")) {
     		System.out.println("hi");
     		Messages.getScriptAlertGoBack(response, "한줄평은 볼 수 없습니다.");
