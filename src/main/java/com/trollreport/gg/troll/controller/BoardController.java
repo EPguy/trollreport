@@ -230,4 +230,32 @@ public class BoardController {
     	mav.setViewName("redirect:/troll/board.do?id="+id);
     	return mav;
     }
+    @RequestMapping("/delete.do")
+    public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        UserDto user = (UserDto) request.getSession().getAttribute("userInfo");
+        TrollPostDto trollPost = trollService.getPost(id);
+        
+        if(user == null) {
+        	Messages.getScriptAlertGoBack(response, "로그인이 필요한 서비스입니다.");
+        	return null;
+        }
+        
+        if(trollPost == null) {
+        	Messages.getScriptAlertGoBack(response, "존재하지 않는 게시글 입니다.");
+        	return null;
+        }
+        
+        if(!(user.getName().equals(trollPost.getWriter()))) {
+        	Messages.getScriptAlertGoBack(response, "작성자가 아니므로 삭제할 수 없습니다");
+        	return null;
+        }
+        
+        trollService.deleteTrollPost(id);
+        
+        mav.setViewName("redirect:/mypage/user.do");
+    	return mav;
+    }
 }

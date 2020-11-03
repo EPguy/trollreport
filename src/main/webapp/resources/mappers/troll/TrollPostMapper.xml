@@ -83,4 +83,8 @@
     <select id="getCommentList" parameterType="int" resultType="com.trollreport.gg.troll.domain.TrollCommentDto">
         SELECT * FROM trollcomment_board WHERE bid = #{id} ORDER BY insertTime DESC 
     </select>
+    
+    <delete id="deleteTrollPost" parameterType="int">
+        DELETE FROM troll_board WHERE id=#{id}
+    </delete>
 </mapper>

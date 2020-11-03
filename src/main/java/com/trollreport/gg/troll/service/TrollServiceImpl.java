@@ -75,4 +75,9 @@ public class TrollServiceImpl implements TrollService {
     public List<TrollCommentDto> getCommentList(int id) {
     	return trollPostMapper.getCommentList(id);
     }
+    
+    @Override
+    public void deleteTrollPost(int id) {
+    	trollPostMapper.deleteTrollPost(id);
+    }
 }

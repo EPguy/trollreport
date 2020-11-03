@@ -9,7 +9,6 @@
     </head>
     <body>
         <jsp:include page="../common/header.jsp"/>
-
         <div class="index-wrapper">
         	<div class="post-wrapper">
         		<div class="troll-confirm-title">검토 중인 게시글</div>
@@ -29,7 +28,7 @@
 			                            </div>
 		                            </div>
 		                            <div class="troll-post-right">
-		                            	<div class="troll-post-delete">삭제</div>
+		                            	<div id="${noConfirm.id}" class="troll-post-delete">삭제</div>
 		                            </div>
 		                        </div>
 	                        </a>
@@ -55,7 +54,7 @@
 			                            </div>
 		                            </div>
 		                            <div class="troll-post-right">
-		                            	<div class="troll-post-delete">삭제</div>
+		                            	<div id="${yesConfirm.id}" class="troll-post-delete">삭제</div>
 		                            </div>
 		                        </div>
 	                        </a>
@@ -65,5 +64,15 @@
         	</div>
         </div>
         <jsp:include page="../common/footer.jsp"/>
+        <script>
+    		$(".troll-post-delete").click(function(e) {
+    			e.preventDefault();
+    			var r = confirm("삭제하시겠습니까?");
+    			
+    			if(r == true) {
+    				window.location.href = "/troll/delete.do?id="+e.target.id;
+    			}
+    		})
+    	</script>
     </body>
 </html>

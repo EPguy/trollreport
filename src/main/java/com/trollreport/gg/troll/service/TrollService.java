@@ -20,4 +20,5 @@ public interface TrollService {
 	public void insertComment(TrollCommentDto trollComment);
 	public List<TrollCommentDto> getCommentList(int id);
 	public List<TrollPostDto> getTrollBoardTop5();
+	public void deleteTrollPost(int id);
 }
