@@ -6,14 +6,10 @@
 	<insert id="insertUser" parameterType="com.trollreport.gg.login.domain.UserDto">
         INSERT INTO user_board (
         	id,
-        	name,
-        	nickname,
-        	email
+        	name
         ) VALUES (
         #{id}
         , #{name}
-        , #{nickname}
-        , #{email}
         )
     </insert>
     <select id="getUser" parameterType="int" resultType="com.trollreport.gg.login.domain.UserDto">

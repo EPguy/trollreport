@@ -223,7 +223,7 @@ public class BoardController {
     	trollComment.setContent(content);
     	trollComment.setUid(user.getId());
     	trollComment.setBid(trollPost.getId());
-    	trollComment.setUname(user.getNickname());
+    	trollComment.setUname(user.getName());
 
     	trollService.insertComment(trollComment);
     	

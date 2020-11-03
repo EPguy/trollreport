@@ -11,7 +11,7 @@
     		function trollRegister() {
     			var frm = document.trollPost;
     			frm.action = "/troll/insert.do";
-    			frm.writer.value = "${sessionScope.userInfo.nickname}";
+    			frm.writer.value = "${sessionScope.userInfo.name}";
     			frm.submit();
     		}
     	</script>

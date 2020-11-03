@@ -31,7 +31,7 @@
                 	</c:when>
                 	<c:when test="${sessionScope.userInfo != null}">
                 		<div class="user-info">
-	                		<div><a href="/mypage/user.do">${userInfo.nickname} 님</a></div>
+	                		<div><a href="/mypage/user.do">${userInfo.name} 님</a></div>
 	                		<a style="margin-left: 15px;" href="/users/logout.do" id="login-button" class="Menus__login float-right" ><span>로그아웃</span></a>
                 		</div>
                 	</c:when>
