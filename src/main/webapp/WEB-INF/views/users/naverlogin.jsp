@@ -3,7 +3,7 @@
 <html lang="ko">
 	<head>
         <meta charset="UTF-8">
-        <title>TROLLREPORT.GG</title>
+        <title>트롤검색.KR</title>
     	<script>
     		window.self.location = "${url}";
     	</script>

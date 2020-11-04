@@ -3,8 +3,10 @@
 <html lang="ko">
 	<head>
         <meta charset="UTF-8">
-        <title>TROLLREPORT.GG</title>
+        <title>트롤검색.KR</title>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/main.css" type="text/css" />
+    	<meta name="keywords" content = "트롤검색 기능">
+    	<meta name = "description" content = "리그오브레전드 유저를 검색해 트롤 기록 여부 확인 가능">
     </head>
     <body>
         <jsp:include page="../common/header.jsp"/>
@@ -23,7 +25,7 @@
                    			<a href="/summoner/info.do?username=${trollUser.name}&page=1">
 					        	<div class="troll-user-item">
 					        		<div class="troll-ranking">${status.count}위</div>
-		                            <div class="troll-icon"><img class="profile" src="<c:url value="http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/${trollUser.profileIconId}.png"/>"/></div>
+		                            <div class="troll-icon"><img alt="롤 프로필아이콘" class="profile" src="<c:url value="http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/${trollUser.profileIconId}.png"/>"/></div>
 		                            <div class="troll-name">${trollUser.name}</div>
 		                            <div class="troll-count">${trollUser.trollCount}개</div>
 		                        </div>

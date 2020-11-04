@@ -3,9 +3,11 @@
 <html lang="ko">
 	<head>
         <meta charset="UTF-8">
-        <title>TROLLREPORT.GG</title>
+        <title>트롤검색.KR</title>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summoner/userinfo.css" type="text/css" />
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination.css" type="text/css" />
+    	<meta name="keywords" content = "소환사 검색">
+    	<meta name = "description" content = "검색한 소환사의 트롤 여부 확인 가능">
     	<script>
     		function trollAdd() {
     			var frm = document.trollPost;

@@ -4,8 +4,10 @@
 <html lang="ko">
 	<head>
         <meta charset="UTF-8">
-        <title>TROLLREPORT.GG</title>
+        <title>트롤검색.KR</title>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/troll/board.css" type="text/css" />
+    	<meta name="keywords" content = "트롤 신고 게시글">
+    	<meta name = "description" content = "트롤 신고 게시글 상세내용 보기">
     	<script>
     		function commentPost() {
     			var frm = document.trollComment;

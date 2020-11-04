@@ -4,9 +4,11 @@
 <html lang="ko">
 	<head>
         <meta charset="UTF-8">
-        <title>TROLLREPORT.GG</title>
+        <title>트롤검색.KR</title>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/troll/report.css" type="text/css" />
     	<script src="${pageContext.request.contextPath}/resources/js/ckeditor/ckeditor.js"></script>
+    	<meta name="keywords" content = "트롤 등록">
+    	<meta name = "description" content = "트롤한 유저를 박제함">
     	<script type="text/javascript">
     		function trollRegister() {
     			var frm = document.trollPost;
@@ -20,8 +22,8 @@
         <jsp:include page="../common/header.jsp"/>
 		<div class="report">
             <div class="report-wrapper">
-                <img src="${pageContext.request.contextPath}/resources/image/troll/reportLogo.png">
-                <div class="troll-post-notice">!! 트롤일자, 자세한 트롤내용, 증거 이미지/동영상 등을 포함하지 않으면 반려 될 수 있습니다. !!</div>
+                <img alt="트런들" src="${pageContext.request.contextPath}/resources/image/troll/reportLogo.png">
+                <div class="troll-post-notice"><em>!! 트롤일자, 자세한 트롤내용, 증거 이미지/동영상 등을 포함하지 않으면 반려 될 수 있습니다. !!</em></div>
                 <form name="trollPost">
                 	<input type="hidden" name="writer">
 	                <div class="post-wrapper">

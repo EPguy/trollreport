@@ -3,12 +3,15 @@
 <html lang="ko">
 	<head>
         <meta charset="UTF-8">
-        <title>TROLLREPORT.GG</title>
+        <title>트롤검색.KR</title>
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/user.css" type="text/css" />
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summoner/userinfo.css" type="text/css" />
+    	<meta name="keywords" content = "마이페이지">
+    	<meta name = "description" content = "현재 검토중인 게시글과 승인완료 된 게시글 확인 가능">
     </head>
     <body>
         <jsp:include page="../common/header.jsp"/>
+
         <div class="index-wrapper">
         	<div class="post-wrapper">
         		<div class="troll-confirm-title">검토 중인 게시글</div>
